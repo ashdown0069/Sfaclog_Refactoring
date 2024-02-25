@@ -1,4 +1,4 @@
-# Turborepo starter - Next.js, Typescript, Tailwind CSS,
+# Turborepo starter - Next.js, Typescript, Tailwind CSS, ESlint, Prettier
 
 ### Apps and Packages
 
@@ -9,7 +9,7 @@
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 - `@repo/tailwind-config` : global tailwind configurations
 
-# eslint extends and rules
+### eslint extends and rules
 
 ```javascript
 extends: [
@@ -28,7 +28,7 @@ rules: {
   },
 ```
 
-# prettier rules
+### prettier rules
 
 ```bash
   printWidth: 80,
