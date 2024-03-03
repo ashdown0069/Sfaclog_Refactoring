@@ -1,0 +1,19 @@
+.custom-next {
+  @apply bg-white z-20 rounded-full w-[40px] h-[40px] absolute top-[140px] right-[256px] flex justify-center items-center shadow-custom;
+}
+
+.custom-prev {
+  @apply bg-white z-20 rounded-full w-[40px] h-[40px] absolute top-[140px] left-[256px] flex justify-center items-center shadow-custom;
+}
+
+.swiper-pagination-bullet {
+  @apply bg-neutral-50;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-brand-90;
+}
+
+.swiper-custom-pagination {
+  @apply mr-[10px] flex justify-center;
+}
