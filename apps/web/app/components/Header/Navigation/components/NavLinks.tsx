@@ -1,5 +1,5 @@
 'use client';
-import { Logo } from '@repo/ui/Icon';
+import { SfaclogLogo } from '@repo/ui/Icon';
 import Link from 'next/link';
 import React from 'react';
 import { usePathname } from 'next/navigation';
@@ -13,7 +13,7 @@ export function NavLinks() {
         href='/'
         className='mr-[40px] flex h-[64px] items-center outline-none'
       >
-        <Logo className='fill-brand-100 h-[20px] w-[120px]' />
+        <SfaclogLogo className='fill-brand-100 h-[20px] w-[120px]' />
       </Link>
       <Link
         href={'/popular'}

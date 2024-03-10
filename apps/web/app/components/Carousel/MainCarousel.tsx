@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import './carouselNavBtn.css';
+import './Carousel.css';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {
@@ -14,14 +14,9 @@ import Image from 'next/image';
 
 export function MainCarousel() {
   const [loading, setLoading] = useState(false);
-  // const [centerIndex, setCenterIndex] = useState(0);
   useEffect(() => {
     setLoading(() => true);
   }, []);
-
-  // const handleSlideChange = (swiper: any) => {
-  //   setCenterIndex(swiper.realIndex);
-  // };
 
   return (
     <>
