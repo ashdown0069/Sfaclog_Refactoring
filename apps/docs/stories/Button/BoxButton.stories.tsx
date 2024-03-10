@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { BoxButton } from '@repo/ui/Button';
-import { IconPencil } from '@repo/ui/Icon';
+import { IconGoogle, IconPencil } from '@repo/ui/Icon';
 const meta = {
   title: 'DesignSystem/Button/BoxButton',
   component: BoxButton,
@@ -8,7 +8,7 @@ const meta = {
     layout: 'centered',
   },
   argTypes: {
-    className: { control: false },
+    // className: { control: false },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof BoxButton>;
@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     type: 'button',
-    label: 'Box Button',
+    children: 'Box Button',
     size: 'large',
     style: 'solid',
   },
@@ -33,7 +33,7 @@ export const Default: Story = {
 export const WithIcon: Story = {
   args: {
     type: 'button',
-    label: 'Box Button with Icon',
+    children: 'Box Button with Icon',
     size: 'large',
     iconPosition: 'left',
     style: 'solid',
@@ -42,17 +42,17 @@ export const WithIcon: Story = {
     disabled: { control: false },
     icon: { control: false },
   },
-  render({ label, size, type, iconPosition, style }) {
+  render({ children, size, type, iconPosition, style }) {
     return (
       <BoxButton
-        key={label}
         style={style}
-        label={label}
         size={size}
         type={type}
         icon={<IconPencil className='size-5 fill-white stroke-white' />}
         iconPosition={iconPosition}
-      />
+      >
+        {children}
+      </BoxButton>
     );
   },
 };
@@ -60,7 +60,7 @@ export const WithIcon: Story = {
 export const Disabled: Story = {
   args: {
     type: 'button',
-    label: 'Box Button Disabled',
+    children: 'Box Button Disabled',
     size: 'large',
     disabled: true,
     style: 'solid',
@@ -68,5 +68,49 @@ export const Disabled: Story = {
   argTypes: {
     icon: { control: false },
     iconPosition: { control: false },
+  },
+};
+
+export const StyleNone: Story = {
+  args: {
+    type: 'button',
+    children: 'Box Button StyleNone',
+    size: 'large',
+    style: 'none',
+    className: 'border',
+  },
+  argTypes: {
+    icon: { control: false },
+    iconPosition: { control: false },
+  },
+};
+
+export const SocialLogin: Story = {
+  args: {
+    type: 'button',
+    children: 'Google 계정 로그인',
+    size: 'large',
+    iconPosition: 'left',
+    style: 'none',
+    className: 'text-neutral-90 border border-neutral-30 bg-white',
+  },
+  argTypes: {
+    className: { control: 'text' },
+    disabled: { control: false },
+    icon: { control: false },
+  },
+  render({ children, size, type, iconPosition, style, className }) {
+    return (
+      <BoxButton
+        style={style}
+        size={size}
+        type={type}
+        icon={<IconGoogle />}
+        iconPosition={iconPosition}
+        className={className}
+      >
+        {children}
+      </BoxButton>
+    );
   },
 };

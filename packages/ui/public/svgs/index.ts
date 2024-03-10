@@ -92,7 +92,14 @@ import IconGroupGray from "./etc/group_gray.svg";
 import IconKebabBlack from "./etc/kebab_black.svg";
 
 //logo
-import Logo from "./logo/logo.svg";
+import SfaclogLogo from "./logo/SfaclogLogo.svg";
+import SfaclogLogoFooter from "./logo/SfaclogLogoFooter.svg";
+import IconGoogle from "./logo/IconGoogle.svg";
+import IconKakao from "./logo/IconKakao.svg";
+import IconNaver from "./logo/IconNaver.svg";
+import IconFacebook from "./logo/IconFacebook.svg";
+import IconInstagram from "./logo/IconInstagram.svg";
+import IconYoutube from "./logo/IconYoutube.svg";
 export {
   IconTaillessArrowUpBlack,
   IconTaillessArrowUpBlue,
@@ -170,5 +177,12 @@ export {
   IconShare,
   IconGroupGray,
   IconKebabBlack,
-  Logo,
+  SfaclogLogo,
+  SfaclogLogoFooter,
+  IconGoogle,
+  IconKakao,
+  IconNaver,
+  IconFacebook,
+  IconInstagram,
+  IconYoutube,
 };

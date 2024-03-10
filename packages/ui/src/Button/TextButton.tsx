@@ -11,13 +11,18 @@ interface TextButtonProps {
    * 아이콘 영역 표시 여부
    */
   iconArea?: boolean;
+  className?: string;
 }
 
-export default function TextButton({ href, iconArea = true }: TextButtonProps) {
+export default function TextButton({
+  href,
+  iconArea = true,
+  className,
+}: TextButtonProps) {
   return (
     <Link
       href={href}
-      className="text-B2R14 text-neutral-80 flex h-[28px] min-w-max cursor-pointer items-center gap-2 px-3"
+      className={`text-B2R14 text-neutral-80 flex h-[28px] min-w-max cursor-pointer items-center gap-2 px-3 ${className}`}
     >
       더보기
       {iconArea && (

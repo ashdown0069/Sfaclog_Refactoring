@@ -15,10 +15,6 @@ interface BoxButtonProps {
    */
   size: keyof typeof btnSize;
   /**
-   * Button label
-   */
-  label: string;
-  /**
    * Button disabled state
    */
   disabled?: boolean;
@@ -38,6 +34,7 @@ interface BoxButtonProps {
    * Additional class name
    */
   className?: string;
+  children: React.ReactNode;
 }
 
 const btnSize = {
@@ -52,6 +49,7 @@ const iconPositionSetting = {
 };
 
 const btnStyle = {
+  none: "",
   solid:
     "bg-brand-70 hover:bg-brand-90 active:bg-brand-90 text-white border border-transparent",
   outline: "border border-brand-90 text-brand-90 text-brand-90",
@@ -60,26 +58,26 @@ const btnStyle = {
 export default function BoxButton({
   type,
   size,
-  label,
   disabled,
   onClick,
   icon,
   iconPosition = "left",
   style = "solid",
   className,
+  children,
 }: BoxButtonProps) {
   return (
     <button
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={`${btnSize[size]} ${btnStyle[style]} disabled:bg-neutral-10 disabled:text-neutral-30 rounded-[6px] px-4  duration-200 ease-in-out ${className}`}
+      className={`${btnSize[size]} ${btnStyle[style]} disabled:bg-neutral-10 disabled:text-neutral-30 rounded-[6px] px-4 duration-200  ease-in-out disabled:border-transparent ${className}`}
     >
       <div
         className={`flex items-center justify-center gap-1.5 ${iconPositionSetting[iconPosition]}`}
       >
         {icon}
-        <span>{label}</span>
+        {children}
       </div>
     </button>
   );

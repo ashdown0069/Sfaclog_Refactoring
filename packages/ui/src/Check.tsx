@@ -21,7 +21,7 @@ export function Check({
   value,
   name,
   label,
-  checked = false,
+  checked = undefined,
   onChange,
 }: RadioButtonsProps) {
   return (
