@@ -16,10 +16,6 @@ interface CapsuleButtonProps {
    */
   size: keyof typeof btnSize;
   /**
-   * Button label
-   */
-  label?: string;
-  /**
    * Button disabled state
    */
   disabled?: boolean;
@@ -57,6 +53,7 @@ const btnSize = {
 };
 
 const btnStyle = {
+  none: "",
   solid:
     "bg-brand-70 hover:bg-brand-90 active:bg-brand-90 border-brand-70 hover:border-brand-90 text-white",
   outline:
@@ -66,7 +63,6 @@ const btnStyle = {
 export default function CapsuleButton({
   type = "button",
   icon,
-  label,
   size = "small",
   style = "solid",
   iconPosition = "left",
@@ -75,8 +71,6 @@ export default function CapsuleButton({
   className,
   children,
 }: CapsuleButtonProps) {
-  if (label && children)
-    throw new Error("You can't use label and children at the same time");
   return (
     <button
       type={type}
@@ -88,8 +82,7 @@ export default function CapsuleButton({
         className={`flex items-center justify-center gap-1.5 ${iconPositionSetting[iconPosition]}`}
       >
         {icon}
-        {label && <span>{label}</span>}
-        {!label && children}
+        {children}
       </div>
     </button>
   );
