@@ -1,7 +1,7 @@
 import { auth } from '@/auth/auth';
-import { NavAuthBtn } from './NavAuthBtn';
-import { NavSearch } from './NavSearch';
-import { NavLinks } from './NavLinks';
+import { NavAuthBtn } from './components/NavAuthBtn';
+import { NavSearch } from './components/NavSearch';
+import { NavLinks } from './components/NavLinks';
 
 export async function Navigation() {
   const session = await auth();

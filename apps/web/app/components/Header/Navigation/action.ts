@@ -1,7 +1,5 @@
-// 'use server';
-
-// import PocketBase from 'pocketbase';
-// import { auth, signOut } from '@/auth';
+'use server';
+import { signOut } from '@/auth/auth';
 
 // export async function userDeleteAction(userId: string) {
 //   const pb = new PocketBase(`${process.env.POCKETBASE_URL}`);
@@ -15,6 +13,6 @@
 //   }
 // }
 
-// export async function LogoutAction() {
-//   await signOut({ redirect: true, redirectTo: '/' });
-// }
+export async function LogoutAction() {
+  await signOut({ redirect: true, redirectTo: '/' });
+}

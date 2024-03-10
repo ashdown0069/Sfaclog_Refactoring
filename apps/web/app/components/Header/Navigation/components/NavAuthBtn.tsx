@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Session } from 'next-auth';
-
+import { signIn } from 'next-auth/react';
 import { CapsuleButton } from '@repo/ui/Button';
 // import { NavNotification } from './NavNotification';
 // import { NavProfile } from './NavProfile';
