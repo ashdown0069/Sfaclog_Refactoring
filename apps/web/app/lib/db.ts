@@ -16,10 +16,7 @@ export const connectDB = async () => {
       bufferCommands: false,
     };
     cached.promise = mongoose
-      .connect(
-        '***REMOVED***',
-        opts,
-      )
+      .connect(`${process.env.MONGODB_URL}`, opts)
       .then(mongoose => {
         return mongoose;
       });
