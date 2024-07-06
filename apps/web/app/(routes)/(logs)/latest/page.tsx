@@ -1,12 +1,9 @@
 import React from 'react';
 import { CategoryBar } from '@/components/Category/CategoryBar';
-import { PopularLogTools } from '../components/PopularLogTools';
 import { LogCard } from '@/components/Card/LogCard';
 import { LoadMoreLogCards } from '../components/LoadMoreLogCards';
 import { getLogsData } from '@/utils/getLogsData';
 import type { ILog } from '@/models/Log';
-import { logsCategoryList, logsSortList } from '@/constant';
-import { notFound } from 'next/navigation';
 import { FloatingButtons } from '@/components/UniqueBtn/FloatingButtons';
 export default async function Page({
   searchParams,
