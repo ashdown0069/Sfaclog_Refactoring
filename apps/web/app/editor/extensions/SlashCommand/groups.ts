@@ -114,22 +114,22 @@ export const GROUPS: Group[] = [
           editor.chain().focus().setImageUpload().run();
         },
       },
-      {
-        name: 'columns',
-        label: '2열로 나누기',
-        iconName: 'Columns',
-        description: 'Add two column content',
-        aliases: ['cols'],
-        shouldBeHidden: editor => editor.isActive('columns'),
-        action: editor => {
-          editor
-            .chain()
-            .focus()
-            .setColumns()
-            .focus(editor.state.selection.head - 1)
-            .run();
-        },
-      },
+      // {
+      //   name: 'columns',
+      //   label: '2열로 나누기',
+      //   iconName: 'Columns',
+      //   description: 'Add two column content',
+      //   aliases: ['cols'],
+      //   shouldBeHidden: editor => editor.isActive('columns'),
+      //   action: editor => {
+      //     editor
+      //       .chain()
+      //       .focus()
+      //       .setColumns()
+      //       .focus(editor.state.selection.head - 1)
+      //       .run();
+      //   },
+      // },
       {
         name: 'horizontalRule',
         label: '구분선',

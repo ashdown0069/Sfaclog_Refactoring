@@ -13,6 +13,7 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}`),
   title: 'SFACLOG',
   description: '스팩로그에서 성장의 길을 열어 보세요',
   openGraph: {
