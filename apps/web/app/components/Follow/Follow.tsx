@@ -1,10 +1,11 @@
 import { FollowCard } from '@/components/Card/FollowCard';
-import { FollowToggle } from '@/components/Etc/FollowToggle';
+import { FollowToggle } from '@/components/Follow/FollowToggle';
 import { FollowButton } from '@/components/UniqueBtn/FollowButton';
 import type { IUser } from '@/models/User';
-import { MypageNotFound } from '../../components/MypageNotFound';
+import { MypageNotFound } from '../../(routes)/mypage/components/MypageNotFound';
 import { Fragment } from 'react';
 interface IUserFollowStatus extends IUser {
+  //백엔드에서 추가되어 넘어옴
   isFollowedUser: boolean;
 }
 interface FollowProps {
@@ -26,7 +27,7 @@ export const Follow = ({
 
   return (
     <div className='my-10 w-full'>
-      <div className=' mb-5 flex items-center justify-center'>
+      <div className='mb-5 flex items-center justify-center'>
         <FollowToggle
           followerCount={followerCount}
           followingCount={followingCount}

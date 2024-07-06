@@ -1,5 +1,5 @@
 import { auth } from '@/auth/auth';
-import { Follow } from './components/Follow';
+import { Follow } from '@/components/Follow/Follow';
 import { Pagination } from '@/components/Pagination/Pagination';
 
 async function page({

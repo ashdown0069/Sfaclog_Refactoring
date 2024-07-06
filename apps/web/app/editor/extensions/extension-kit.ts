@@ -90,7 +90,7 @@ export const ExtensionKit = () => [
   Column,
   Selection,
   Heading.configure({
-    levels: [1, 2, 3, 4],
+    levels: [1, 2, 3],
   }),
   HorizontalRule,
   StarterKit.configure({

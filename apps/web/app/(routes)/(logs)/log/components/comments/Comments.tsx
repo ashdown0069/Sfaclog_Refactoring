@@ -19,8 +19,6 @@ export const Comments = ({ isLoggedIn, comments }: CommentsProps) => {
     ? '댓글을 입력해주세요'
     : '로그인 후 댓글을 입력해주세요';
 
-  // console.log('comments ====== ', comments);
-  // console.log('isLoggedIn comments', isLoggedIn);
   return (
     <div>
       <CommentInputForm

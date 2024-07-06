@@ -11,7 +11,6 @@ export const useUploader = ({
 
   const uploadFile = useCallback(
     async (file: File) => {
-      console.log(file);
       setLoading(true);
       try {
         const imageUrl = await ImageUploadToFirebase(file);

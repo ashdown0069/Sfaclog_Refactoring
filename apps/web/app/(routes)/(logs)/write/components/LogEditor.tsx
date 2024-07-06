@@ -55,7 +55,14 @@ export const LogEditor = ({
       return;
     }
     if (editor) {
-      setLogEditorContent(() => editor.getJSON());
+      let content = editor.getJSON();
+      //이미지 업로드 블럭 필터링
+      const filetered = content?.content?.filter(
+        el => el.type !== 'imageUpload',
+      );
+      content.content = filetered;
+
+      setLogEditorContent(() => content);
       setLogConentHTML(() => editor.getHTML());
     }
     setIsOpen(() => true);

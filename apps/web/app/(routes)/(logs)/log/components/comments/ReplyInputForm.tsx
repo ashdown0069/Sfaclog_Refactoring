@@ -62,8 +62,7 @@ export const ReplyInputForm = ({
         toast.error('답글을 입력해주세요.');
         return;
       }
-      console.log('log id = ', params.id);
-      console.log('commentId = ', id);
+
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/logs/comments/reply`,
         {

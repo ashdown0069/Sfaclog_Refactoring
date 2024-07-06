@@ -13,10 +13,7 @@ export default async function Page({
 }: {
   searchParams: { [key: string]: string | undefined };
 }) {
-  console.log(searchParams);
-
   const logs = await getLogsData(searchParams?.category || 'all', 'latest', 1);
-  // console.log('latest logs', logs);
   return (
     <main className='main__page flex flex-col'>
       {/* 상단 카테코리 전체, 프론트엔드, 백엔드 ... */}

@@ -62,7 +62,6 @@ import { deleteAccountSchema } from '@/lib/validator';
 
 export const PATCH = auth(async (req: NextRequest) => {
   const data = await req.json();
-  console.log('PATCH data = ', data);
   if (!req.auth) {
     return NextResponse.json(
       { success: false, message: 'unauthorized - not logged in' },

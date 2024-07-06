@@ -21,7 +21,6 @@ export default async function layout({
 
   //profile card의 유저와 현재로그인한 유저가 같은지 판별
   const isLogOwner = session?.user?.userId === data.user._id;
-  console.log('pageurl isLogOwner', isLogOwner);
   //로그인 여부
   const isLoggedIn = !!session;
   return (

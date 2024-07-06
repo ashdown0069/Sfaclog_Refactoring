@@ -52,19 +52,19 @@ export const TableColumnMenu = React.memo(
           <PopoverMenu.Item
             iconComponent={<Icon name='ArrowLeftToLine' />}
             close={false}
-            label='Add column before'
+            label='뒤에 열 추가'
             onClick={onAddColumnBefore}
           />
           <PopoverMenu.Item
             iconComponent={<Icon name='ArrowRightToLine' />}
             close={false}
-            label='Add column after'
+            label='앞에 열 추가'
             onClick={onAddColumnAfter}
           />
           <PopoverMenu.Item
             icon='Trash'
             close={false}
-            label='Delete column'
+            label='열 삭제'
             onClick={onDeleteColumn}
           />
         </Toolbar.Wrapper>
