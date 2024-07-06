@@ -16,10 +16,7 @@ export const connectDB = async () => {
       bufferCommands: false,
     };
     cached.promise = mongoose
-      .connect(
-        'mongodb+srv://first-user:950309@cluster0.fpcnqmg.mongodb.net/sfaclog',
-        opts,
-      )
+      .connect(`${process.env.MONGODB_URL}`, opts)
       .then(mongoose => {
         return mongoose;
       });

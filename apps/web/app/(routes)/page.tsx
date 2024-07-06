@@ -1,5 +1,4 @@
 import React from 'react';
-// import { MainCarousel } from '@/components/Carousel/MainCarousel';
 import { PopularLogs } from './components/PopularLogs';
 import Footer from '@/components/Footer/Footer';
 import { RecommendedLogs } from './components/RecommendedLogs';
