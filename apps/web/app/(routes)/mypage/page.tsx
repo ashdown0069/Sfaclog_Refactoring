@@ -29,7 +29,7 @@ async function MyPage({
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/mypage/${category}?page=${page}`,
     {
       method: 'GET',
-      headers: headers(),
+      headers: new Headers(headers()),
     },
   );
   const data = await res.json();

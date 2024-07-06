@@ -14,7 +14,7 @@ export default async function layout({
   //GET api/user/[pageurl]
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/user/${params.pageurl}`,
-    { method: 'GET', headers: headers(), cache: 'no-cache' },
+    { method: 'GET', headers: new Headers(headers()), cache: 'no-cache' },
   );
   if (!res.ok) notFound();
   const data = await res.json();
