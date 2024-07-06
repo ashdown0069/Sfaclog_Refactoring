@@ -1,0 +1,19 @@
+.category-next {
+  @apply bg-white z-20 rounded-full w-[35px] h-[35px] absolute top-[55px] -right-10 flex justify-center items-center shadow-custom;
+}
+
+.category-prev {
+  @apply bg-white z-20 rounded-full w-[35px] h-[35px] absolute top-[55px] -left-10 flex justify-center items-center shadow-custom;
+}
+
+.avatarCategory-next {
+  @apply bg-white z-20 rounded-full w-[35px] h-[35px] absolute top-[20px] -right-10 flex justify-center items-center shadow-custom;
+}
+
+.avatarCategory-prev {
+  @apply bg-white z-20 rounded-full w-[35px] h-[35px] absolute top-[20px] -left-10 flex justify-center items-center shadow-custom;
+}
+
+.swiper-slide {
+  @apply mr-3;
+}

@@ -10,7 +10,6 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(req: NextRequest) {
   const searchParams = req.nextUrl.searchParams;
   const token = searchParams.get('token'); // url에서 token을 가져옴
-  console.log('token = ', token);
   if (!token) return NextResponse.redirect(new URL('/', req.url));
   try {
     await connectDB();

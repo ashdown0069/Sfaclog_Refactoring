@@ -30,7 +30,6 @@ module.exports = {
   },
   ignorePatterns: [
     // Ignore dotfiles
-    ".*.js",
     "node_modules/",
   ],
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
@@ -40,5 +39,6 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "off", // type any 경고 끄기
     "tailwindcss/no-custom-classname": "off", // tailwind custom classname 경고 끄기
     "@next/next/no-img-element": "off", // Next Image가 아닌 img 태그 사용 시 경고 끄기
+    "@typescript-eslint/ban-ts-comment": "off", // @ts-ignore 사용 경고 끄기
   },
 };

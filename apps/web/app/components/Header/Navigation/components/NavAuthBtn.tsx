@@ -2,11 +2,10 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Session } from 'next-auth';
-import { signIn } from 'next-auth/react';
 import { CapsuleButton } from '@repo/ui/Button';
-// import { NavNotification } from './NavNotification';
-// import { NavProfile } from './NavProfile';
-// import { NavMessage } from './NavMessage';
+import { NavNotification } from '../NavNotification';
+import { NavProfile } from '../NavProfile';
+import { NavMessage } from '../NavMessage';
 import { usePathname } from 'next/navigation';
 
 interface NavAuthBtnProps {
@@ -47,12 +46,12 @@ export function NavAuthBtn({ session }: NavAuthBtnProps) {
             isOpen={openWidget === '메시지'}
             onToggle={() => handleOpenWidget('메시지')}
             onClose={handleCloseWidget}
-          />
+          /> */}
           <NavProfile
             image={session.user.image || ''}
             isOpen={openWidget === '드롭다운'}
             onToggle={() => handleOpenWidget('드롭다운')}
-          /> */}
+          />
         </div>
       ) : (
         <div className='flex w-[171px] grow items-center gap-2'>

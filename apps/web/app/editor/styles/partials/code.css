@@ -1,0 +1,81 @@
+.ProseMirror {
+  code {
+    @apply text-gray-200 rounded-sm font-mono;
+    &::selection {
+      @apply bg-gray-500;
+    }
+  }
+  pre {
+    @apply bg-gray-800 text-gray-200 rounded-md my-4 px-4 py-7 overflow-auto min-h-[100px];
+    *::selection {
+      @apply bg-gray-600;
+    }
+    code {
+      @apply bg-transparent p-0 text-inherit;
+    }
+  }
+}
+
+/* .ProseMirror pre code .hljs-comment,
+.ProseMirror pre code .hljs-quote {
+  @apply text-gray-500;
+}
+
+.ProseMirror pre code .hljs-variable,
+.ProseMirror pre code .hljs-template-variable,
+.ProseMirror pre code .hljs-attribute,
+.ProseMirror pre code .hljs-tag,
+.ProseMirror pre code .hljs-name,
+.ProseMirror pre code .hljs-regexp,
+.ProseMirror pre code .hljs-link,
+.ProseMirror pre code .hljs-selector-id,
+.ProseMirror pre code .hljs-selector-class {
+  @apply text-red-400;
+}
+
+.ProseMirror pre code .hljs-number,
+.ProseMirror pre code .hljs-meta,
+.ProseMirror pre code .hljs-built_in,
+.ProseMirror pre code .hljs-builtin-name,
+.ProseMirror pre code .hljs-literal,
+.ProseMirror pre code .hljs-type,
+.ProseMirror pre code .hljs-params {
+  @apply text-orange-300;
+}
+
+.ProseMirror pre code .hljs-string,
+.ProseMirror pre code .hljs-symbol,
+.ProseMirror pre code .hljs-bullet {
+  @apply text-green-300;
+}
+
+.ProseMirror pre code .hljs-title,
+.ProseMirror pre code .hljs-section {
+  @apply text-blue-300;
+}
+
+.ProseMirror pre code .hljs-keyword,
+.ProseMirror pre code .hljs-selector-tag {
+  @apply text-purple-300;
+}
+
+.ProseMirror pre code .hljs-deletion,
+.ProseMirror pre code .hljs-addition {
+  @apply px-1 inline-block;
+}
+
+.ProseMirror pre code .hljs-deletion {
+  @apply bg-red-900;
+}
+
+.ProseMirror pre code .hljs-addition {
+  @apply bg-green-900;
+}
+
+.ProseMirror pre code .hljs-emphasis {
+  @apply italic;
+}
+
+.ProseMirror pre code .hljs-strong {
+  @apply font-bold;
+} */

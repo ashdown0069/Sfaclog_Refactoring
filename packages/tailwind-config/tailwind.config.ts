@@ -1,26 +1,10 @@
+const plugin = require("tailwindcss/plugin");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {
       fontFamily: {
         pretendard: ["var(--font-pretendard)"],
-      },
-      screens: {
-        sm: "360px",
-        md: "768px",
-        lg: "1440px",
-      },
-      container: {
-        screens: {
-          md: "960px",
-          lg: "1440px",
-        },
-        padding: {
-          sm: "20px",
-          md: "40px",
-          lg: "240px",
-        },
-        center: true,
       },
       boxShadow: {
         custom: "0 4px 16px 0 rgba(7, 46, 120, 0.14)",

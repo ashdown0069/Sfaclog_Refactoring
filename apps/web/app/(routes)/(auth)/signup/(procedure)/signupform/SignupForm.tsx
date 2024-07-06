@@ -7,26 +7,11 @@ import { useRouter } from 'next/navigation';
 import { SignUpSubmitAction, CheckDuplication } from './action';
 import type { CheckDuplicationProps } from './action';
 import { zodResolver } from '@hookform/resolvers/zod';
-import _, { debounce } from 'lodash';
+import debounce from 'lodash/debounce';
 import { SignupSchema } from '@/lib/validator';
 import type { SignupDataType } from '@/lib/validator';
-import Loading from '@/(routes)/loadingSpinner';
-
-const interestsList = [
-  { label: '프론트엔드', value: 'Frontend' },
-  { label: '백엔드', value: 'Backend' },
-  { label: '데이터 분석', value: 'Data' },
-  { label: '서버 개발', value: 'Server' },
-  { label: 'DBA', value: 'DBA' },
-  { label: 'iOS 개발', value: 'iOS' },
-  { label: '안드로이드 개발', value: 'Android' },
-];
-
-const offersList = [
-  { label: '채용 제안', value: 'Recruitment' },
-  { label: '의견 제안', value: 'Opinion' },
-  { label: '프로젝트 제안', value: 'Project' },
-];
+import { FullLoadingSpinner } from '@/components/Spinner/FullLoadingSpinner';
+import { logPublishCategoryList } from '@/constant';
 
 const duplErrorMsg = {
   username: '이미 사용중인 아이디입니다.',
@@ -47,7 +32,7 @@ const successMsg = {
  */
 export function SignupForm() {
   const router = useRouter();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [isCheck, setIsCheck] = useState({
     username: false,
     email: false,
@@ -55,8 +40,9 @@ export function SignupForm() {
     password: false,
     passwordConfirm: false,
   });
+  //isCheck의 모든 값이 true일 때 버튼 활성화
+  const isPass = Object.values(isCheck).every(v => v === true);
   const [interests, setInterests] = useState<string[]>([]);
-  const [offers, setOffers] = useState<string[]>([]);
 
   //관심분야 체크박스 핸들러
   const handleInterests = ({ value }: { value: string }) => {
@@ -66,23 +52,13 @@ export function SignupForm() {
       setInterests(prev => [...prev, value]);
     }
   };
-
-  //제안 허용 체크박스 핸들러
-  const handleOffers = ({ value }: { value: string }) => {
-    if (offers.includes(value)) {
-      setOffers(prev => prev.filter(el => el !== value));
-    } else {
-      setOffers(prev => [...prev, value]);
-    }
-  };
-
   const {
     register,
     handleSubmit,
     watch,
     clearErrors,
     setError,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<SignupDataType>({
     mode: 'onChange',
     resolver: zodResolver(SignupSchema),
@@ -126,14 +102,14 @@ export function SignupForm() {
   }, [watchedFields.username, errors.username, handleCheckDupl]);
 
   useEffect(() => {
-    //에러가 없고 이메일 값이 존재할 때 아이디 중복 체크
+    //에러가 없고 이메일 값이 존재할 때 이메일 중복 체크
     if (!errors.email && watchedFields.email.length >= 1) {
       handleCheckDupl('email', watchedFields.email);
     }
   }, [watchedFields.email, errors.email]);
 
   useEffect(() => {
-    //에러가 없고 닉네임 값이 존재할 때 아이디 중복 체크
+    //에러가 없고 닉네임 값이 존재할 때 닉네임 중복 체크
     if (!errors.nickname && watchedFields.nickname.length >= 2) {
       handleCheckDupl('nickname', watchedFields.nickname);
     }
@@ -169,35 +145,30 @@ export function SignupForm() {
     } else if (errors.password) {
       setIsCheck(prev => ({ ...prev, password: false }));
     }
-  }, [watchedFields.password, watchedFields.passwordConfirm, errors.password]);
+  }, [watchedFields.password, errors.password, watchedFields.passwordConfirm]);
 
   //form submit
   const handleFormSubmit = async (formData: any) => {
-    console.log('form data =', formData, isCheck);
-    setIsSubmitting(() => true);
-    if (!_.every(isCheck, Boolean) || !formData) {
+    if (!isPass || !formData) {
       //다시 한번 유효성 검사
-      setIsSubmitting(() => false);
       return alert('입력값을 확인해주세요.');
     }
-    formData = { ...formData, interests, offers };
-    console.log('submit data', formData);
+    //체크박스 값을 formData에 추가
+    formData = { ...formData, interests };
     const result = await SignUpSubmitAction(formData);
-
     if (result.success) {
       //회원가입 성공시 이메일 발송 완료 페이지로 이동
       router.push(`/signup/verify?email=${formData.email}`);
     } else {
       //회원가입 실패시 메인페이지로 이동
-      setIsSubmitting(() => false);
       alert('오류가 발생 하였습니다.');
-      router.push('/');
+      // router.push('/');
     }
   };
 
   return (
     <>
-      {isSubmitting && <Loading />}
+      {isSubmitting && <FullLoadingSpinner />}
       <form onSubmit={handleSubmit(handleFormSubmit)} className='mx-auto w-fit'>
         <div className='flex flex-col gap-6'>
           <div className='flex w-[400px] flex-col gap-3'>
@@ -266,8 +237,8 @@ export function SignupForm() {
           <div className='flex w-[400px] flex-col gap-3'>
             <div className='text-B1M16'>관심 분야</div>
             <div className='flex flex-wrap'>
-              {interestsList.map(item => (
-                <div className='w-1/2' key={item.value}>
+              {logPublishCategoryList.map((item, idx) => (
+                <div className='w-1/2' key={idx}>
                   <Check
                     name='interests'
                     value={item.value}
@@ -278,7 +249,7 @@ export function SignupForm() {
               ))}
             </div>
           </div>
-          <div className='flex w-[400px] flex-col gap-3'>
+          {/* <div className='flex w-[400px] flex-col gap-3'>
             <div className='text-B1M16'>제안 허용</div>
             <div className='flex flex-wrap'>
               {offersList.map(item => (
@@ -292,14 +263,14 @@ export function SignupForm() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
         <div className='mb-32 mt-6 flex flex-col justify-center gap-2.5'>
           <BoxButton
             style='solid'
             size='large'
             type='submit'
-            disabled={!_.every(isCheck, Boolean)} // 유효성 검사 및 중복체크 모두 통과해야 버튼 활성화
+            disabled={!isPass} // 유효성 검사 및 중복체크 모두 통과해야 버튼 활성화
           >
             다음
           </BoxButton>
