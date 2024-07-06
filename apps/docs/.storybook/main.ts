@@ -56,16 +56,3 @@ const config: StorybookConfig = {
   },
 };
 export default config;
-
-// webpackFinal: async config => {
-//   if (config && config.module && config.module.rules) {
-//     config.module.rules?.forEach(rule => {
-//       if (!rule || typeof rule !== 'object') return;
-//       if (rule.test instanceof RegExp && rule.test.test('.svg')) {
-//         rule.exclude = /\.svg$/;
-//       }
-//     });
-//   }
-
-//   return config;
-// },
