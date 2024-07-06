@@ -8,7 +8,7 @@
     "lint": "eslint . --max-warnings 0",
     "storybook": "storybook dev -p 6006",
     "dev": " next dev -p 3001",
-   "build-storybook": "build-storybook -o storybook-static",
+    "build-storybook": "build-storybook",
     "serve-storybook": "serve storybook-static"
   },
   "dependencies": {
