@@ -2,11 +2,12 @@ import { connectDB } from '@/lib/db';
 import { NextResponse, type NextRequest } from 'next/server';
 export async function GET(req: NextRequest) {
   try {
-    await connectDB();
+    const db = await connectDB();
     console.log('db connected');
     return NextResponse.json(
       {
         message: 'db connected',
+        db,
       },
       { status: 200 },
     );

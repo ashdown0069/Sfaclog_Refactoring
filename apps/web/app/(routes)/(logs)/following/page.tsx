@@ -20,7 +20,7 @@ export default async function Page({
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/logs/following?user=${nickname}`,
     {
       cache: 'no-cache',
-      headers: headers(),
+      headers: new Headers(headers()),
     },
   );
   //searchParams
