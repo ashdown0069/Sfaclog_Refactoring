@@ -73,28 +73,6 @@ export default function LoginForm() {
       <div className='my-3 flex items-center before:flex-1 before:border-t before:border-black/20 after:flex-1 after:border-t after:border-black/20 '>
         <p className='text-text-secondary mx-2 text-center text-sm'>또는</p>
       </div>
-      <div className='flex flex-col gap-[13px]'>
-        <BoxButton
-          type='button'
-          size='large'
-          style='none'
-          icon={<IconKakao />}
-          className='bg-[#FFDE02]'
-          onClick={() => toast.error('구글 로그인만 지원합니다.')}
-        >
-          Kakao 계정 로그인
-        </BoxButton>
-        <BoxButton
-          type='button'
-          size='large'
-          style='none'
-          icon={<IconNaver />}
-          className='bg-[#03C75A] text-white'
-          onClick={() => toast.error('구글 로그인만 지원합니다.')}
-        >
-          Naver 계정 로그인
-        </BoxButton>
-      </div>
     </form>
   );
 }

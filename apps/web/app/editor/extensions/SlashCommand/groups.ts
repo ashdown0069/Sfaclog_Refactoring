@@ -36,16 +36,6 @@ export const GROUPS: Group[] = [
         },
       },
       {
-        name: 'heading4',
-        label: '제목4',
-        iconName: 'Heading4',
-        description: 'Low priority section title',
-        aliases: ['h4'],
-        action: editor => {
-          editor.chain().focus().setHeading({ level: 4 }).run();
-        },
-      },
-      {
         name: 'bulletList',
         label: '글머리 기호 목록',
         iconName: 'List',

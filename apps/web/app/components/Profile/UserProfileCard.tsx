@@ -29,9 +29,7 @@ export async function UserProfileCard({
   //ProfileFlwFlwer를 클릭했을 때 소유자면 마이페이지로,
   // 아니면 유저페이지로 이동
 
-  const LinkUrl = isLogOwner
-    ? '/mypage/follow'
-    : `/user/follow/${author.nickname}`;
+  const LinkUrl = isLogOwner ? '/mypage/follow' : `#`;
   const isFollowing = author.follower.includes(userId);
   return (
     <ProfileContainer>

@@ -4,16 +4,17 @@ import { UserModel } from '@/models/User';
 import { isNumber } from 'lodash';
 import { NextRequest, NextResponse } from 'next/server';
 
-/**
- * Server Side GET api/mypage/follow/[id]?filter={}&page={number}
- * @description mypage 팔로잉 or 팔로워 가져오기
- * @description Params: [id] user id
- * @description searchParams: page={number} filter='following' || 'follower'
- */
-export async function GET(
-  req: NextRequest,
-  { params }: { params: { id: string } },
-) {
+export const GET = auth(async (req: NextRequest) => {
+  if (!req.auth) {
+    return NextResponse.json(
+      {
+        success: false,
+        message: 'Login required',
+      },
+      { status: 401 },
+    );
+  }
+  const userId = req.auth.user.userId;
   const searchParams = req.nextUrl.searchParams;
   const filter = searchParams.get('filter') || 'following';
   const pageParam = searchParams.get('page') || '1';
@@ -39,8 +40,6 @@ export async function GET(
       { status: 500 },
     );
   }
-
-  const userId = params.id;
 
   try {
     const user = await UserModel.findOne({
@@ -104,4 +103,4 @@ export async function GET(
       { status: 500 },
     );
   }
-}
+});

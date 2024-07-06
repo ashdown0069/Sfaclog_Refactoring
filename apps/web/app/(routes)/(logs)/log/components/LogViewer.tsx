@@ -26,7 +26,6 @@ export const LogViewer = ({
 }: LogEditorProps) => {
   //에디터, 글자수 받아오는 훅
   const { editor } = useBlockEditor(log.content, 'view');
-  console.log('view', editor);
   return (
     <>
       {editor && (
