@@ -1,3 +1,4 @@
+"use client";
 import { InputHTMLAttributes, forwardRef, useState } from "react";
 
 import { IconViewCancel, IconViewGray } from "@repo/ui/Icon";
@@ -16,7 +17,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const [isViewMode, setIsViewMode] = useState(false);
     const receivedClassName = className;
     return (
-      <div className="relative flex w-full flex-col gap-[10px]">
+      <div className="relative flex size-full flex-col gap-[10px]">
         <input
           type={isViewMode && type == "password" ? "text" : type}
           ref={ref}

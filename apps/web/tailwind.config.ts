@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [require('@repo/tailwind-config/tailwind.config.ts')],
+  darkMode: ['class'],
+  safelist: ['ProseMirror'],
   content: [
     // apps content
     './app/**/*.{js,ts,jsx,tsx}',
@@ -8,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'maxWidth-1200': { max: '1200px' },
+      },
       keyframes: {
         fadeAndShrink: {
           '0%': {
@@ -40,5 +45,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
 };

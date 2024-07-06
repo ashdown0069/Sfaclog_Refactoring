@@ -9,7 +9,6 @@ export default async function page({
 }: {
   searchParams: { [key: string]: string };
 }) {
-  console.log('email = ', searchParams.email);
   if (searchParams.email !== undefined) {
     const { isDuplicate, error } = await CheckDuplication(
       'email',

@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+//검색기록을 저장하는 store
 type State = {
   records: string[];
 };

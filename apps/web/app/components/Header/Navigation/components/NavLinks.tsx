@@ -22,8 +22,8 @@ export function NavLinks() {
         인기 로그
       </Link>
       <Link
-        href={'/recently'}
-        className={`${pathname.startsWith('/recently') ? 'text-B1B16 border-neutral-90' : 'text-B1R16 border-transparent'} ${navClasses}`}
+        href={'/latest'}
+        className={`${pathname.startsWith('/latest') ? 'text-B1B16 border-neutral-90' : 'text-B1R16 border-transparent'} ${navClasses}`}
       >
         최신 로그
       </Link>
@@ -32,12 +32,6 @@ export function NavLinks() {
         className={`${pathname.startsWith('/following') ? 'text-B1B16 border-neutral-90' : 'text-B1R16 border-transparent'} ${navClasses}`}
       >
         팔로잉 로그
-      </Link>
-      <Link
-        href={'/community'}
-        className={`${pathname.startsWith('/community') ? 'text-B1B16 border-neutral-90' : 'text-B1R16 border-transparent'} ${navClasses}`}
-      >
-        커뮤니티
       </Link>
     </>
   );

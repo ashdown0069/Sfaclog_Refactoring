@@ -9,11 +9,11 @@ interface BoxButtonProps {
   /**
    * Button style
    */
-  style: keyof typeof btnStyle;
+  style: keyof typeof btnStyleClasses;
   /**
    * Button size
    */
-  size: keyof typeof btnSize;
+  size: keyof typeof btnSizeClasses;
   /**
    * Button disabled state
    */
@@ -29,7 +29,7 @@ interface BoxButtonProps {
   /**
    * Position of the icon
    */
-  iconPosition?: keyof typeof iconPositionSetting;
+  iconPosition?: keyof typeof iconPositionSettingClasses;
   /**
    * Additional class name
    */
@@ -37,22 +37,22 @@ interface BoxButtonProps {
   children: React.ReactNode;
 }
 
-const btnSize = {
+const btnSizeClasses = {
   small: "min-w-[110px] h-[30px] text-B3M12",
   middle: "min-w-[150px] h-[40px] text-B2M14",
   large: "min-w-[360px] h-[50px] text-B1B16",
 };
 
-const iconPositionSetting = {
+const iconPositionSettingClasses = {
   left: "flex-row",
   right: "flex-row-reverse",
 };
 
-const btnStyle = {
+const btnStyleClasses = {
   none: "",
   solid:
     "bg-brand-70 hover:bg-brand-90 active:bg-brand-90 text-white border border-transparent",
-  outline: "border border-brand-90 text-brand-90 text-brand-90",
+  outline: "border border-brand-90 text-brand-90 ",
 };
 
 export default function BoxButton({
@@ -71,10 +71,10 @@ export default function BoxButton({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={`${btnSize[size]} ${btnStyle[style]} disabled:bg-neutral-10 disabled:text-neutral-30 rounded-[6px] px-4 duration-200  ease-in-out disabled:border-transparent ${className}`}
+      className={`${btnSizeClasses[size]} ${btnStyleClasses[style]} disabled:bg-neutral-10 disabled:text-neutral-30 rounded-[6px] px-4 duration-200  ease-in-out disabled:border-transparent ${className}`}
     >
       <div
-        className={`flex items-center justify-center gap-1.5 ${iconPositionSetting[iconPosition]}`}
+        className={`flex items-center justify-center gap-1.5 ${iconPositionSettingClasses[iconPosition]}`}
       >
         {icon}
         {children}

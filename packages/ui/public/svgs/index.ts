@@ -47,6 +47,7 @@ import IconCheckBoxSquareTrue from "./checks/check_box_square_true.svg";
 import IconCancelBoxBlue from "./cancels/cancel_box_blue.svg";
 import IconCancelBoxGray from "./cancels/cancel_box_gray.svg";
 import IconCancelBlack from "./cancels/cancel_black.svg";
+import IconCancelWhite from "./cancels/cancel_white.svg";
 // plus icon import
 import IconPlusBoxBlue from "./plus/plus_box_blue.svg";
 import IconPlusBoxGray from "./plus/plus_box_gray.svg";
@@ -100,6 +101,9 @@ import IconNaver from "./logo/IconNaver.svg";
 import IconFacebook from "./logo/IconFacebook.svg";
 import IconInstagram from "./logo/IconInstagram.svg";
 import IconYoutube from "./logo/IconYoutube.svg";
+
+//comments reply icon
+import IconReplyArrow from "./etc/reply_arrow.svg";
 export {
   IconTaillessArrowUpBlack,
   IconTaillessArrowUpBlue,
@@ -141,6 +145,7 @@ export {
   IconCheckBoxSquareFalse,
   IconCheckBoxSquareTrue,
   IconCancelBlack,
+  IconCancelWhite,
   IconCancelBoxBlue,
   IconCancelBoxGray,
   IconPlusBlack,
@@ -185,4 +190,5 @@ export {
   IconFacebook,
   IconInstagram,
   IconYoutube,
+  IconReplyArrow,
 };

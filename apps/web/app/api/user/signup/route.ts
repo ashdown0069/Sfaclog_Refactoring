@@ -1,12 +1,12 @@
 import { connectDB } from '@/lib/db';
 import mongoose from 'mongoose';
 import { UserModel } from '@/models/User';
-import type { User } from '@/models/User';
+import type { IUser } from '@/models/User';
 import { NextResponse } from 'next/server';
-import { SignupSchema } from '@/lib/validator';
+import { SignupSchema, interestsSchema } from '@/lib/validator';
 import type { NextRequest } from 'next/server';
 import type { SignupDataType } from '@/lib/validator';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { sendVerificationEmail } from '@/lib/nodemailer';
 //유저 회원가입 route
 export async function POST(req: NextRequest) {
@@ -14,9 +14,11 @@ export async function POST(req: NextRequest) {
 
   //유효성 검사
   let parsedData: Partial<SignupDataType>;
+  let interests;
   try {
     parsedData = SignupSchema.parse(data);
     delete parsedData.passwordConfirm;
+    interests = interestsSchema.parse(data.interests);
   } catch (err) {
     return NextResponse.json(
       { success: false, message: 'validation error, try again' },
@@ -30,25 +32,26 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     return NextResponse.json(
       {
-        message: 'can not connect to database',
+        message: 'can not connect to database ',
       },
-      { status: 400 },
+      { status: 500 },
     );
   }
 
   //트랜잭션 시작
-  let createdUser: User;
+
   const session = await mongoose.startSession();
   session.startTransaction();
+  const SALTROUNDS = 10;
   try {
     if (parsedData.password && parsedData.email) {
-      const hash = await bcrypt.hash(parsedData.password, 10);
-      createdUser = await new UserModel({
+      const hash = await bcrypt.hash(parsedData.password, SALTROUNDS);
+      const createdUser: IUser = await new UserModel({
         ...parsedData,
+        interests: interests,
         password: hash,
         pageUrl: parsedData.username,
       }).save();
-
       if (createdUser && createdUser.email && createdUser.verifyToken) {
         const result = await sendVerificationEmail(
           createdUser.email,

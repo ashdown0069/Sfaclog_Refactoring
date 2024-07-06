@@ -6,13 +6,17 @@ import { useRecordStore } from '@/stores/useSearchRecordStore';
 export function SearchBar({ onClose }: { onClose?: () => void }) {
   const [query, setQuery] = useState('');
   const router = useRouter();
+
+  //검색기록
   const { updateRecord } = useRecordStore();
   const handleSearchSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     if (onClose) {
       onClose();
     }
+    //검색기록 저장
     updateRecord(query);
+    //검색 결과 페이지 이동
     router.push(`/search?query=${query}`);
   };
   return (

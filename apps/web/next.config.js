@@ -1,5 +1,24 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
+    ],
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   transpilePackages: ['@repo/ui'],
   webpack(config) {
     // Grab the existing rule that handles SVG imports

@@ -38,7 +38,7 @@ interface CapsuleButtonProps {
   /**
    * Children
    */
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
 const iconPositionSetting = {
@@ -48,16 +48,15 @@ const iconPositionSetting = {
 
 const btnSize = {
   small: "h-[32px] px-4",
-  middle: "h-[36px] px-4",
+  medium: "h-[36px] px-4",
   large: "h-[40px] px-6",
 };
 
 const btnStyle = {
   none: "",
   solid:
-    "bg-brand-70 hover:bg-brand-90 active:bg-brand-90 border-brand-70 hover:border-brand-90 text-white",
-  outline:
-    "border-brand-70 text-brand-70 bg-white hover:border-[#4C8BFF] hover:bg-[#EFF3FA] active:bg-[#EFF3FA]",
+    "bg-brand-70 hover:bg-brand-90 border-brand-70 hover:border-brand-90 text-white",
+  outline: "border-brand-70 text-brand-70 bg-white",
 };
 
 export default function CapsuleButton({
