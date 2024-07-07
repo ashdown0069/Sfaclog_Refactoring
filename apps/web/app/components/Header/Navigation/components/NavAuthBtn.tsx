@@ -1,19 +1,19 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Session } from 'next-auth';
+import type { Session } from 'next-auth';
 import { CapsuleButton } from '@repo/ui/Button';
-import { NavNotification } from '../NavNotification';
 import { NavProfile } from '../NavProfile';
-import { NavMessage } from '../NavMessage';
 import { usePathname } from 'next/navigation';
+import { NavNotification } from '../NavNotification';
+import { NavMessage } from '../NavMessage';
 
 interface NavAuthBtnProps {
   session: Session | null;
 }
 
 export function NavAuthBtn({ session }: NavAuthBtnProps) {
-  const pathname = usePathname();
+  // const pathname = usePathname();
   const [openWidget, setOpenWidget] = useState<
     '알림' | '메시지' | '드롭다운' | null
   >(null);
@@ -24,13 +24,13 @@ export function NavAuthBtn({ session }: NavAuthBtnProps) {
     setOpenWidget(current => (current === widgetName ? null : widgetName));
   };
 
-  const handleCloseWidget = () => {
-    setOpenWidget(null);
-  };
+  // const handleCloseWidget = () => {
+  //   setOpenWidget(null);
+  // };
 
-  useEffect(() => {
-    setOpenWidget(null);
-  }, [pathname]);
+  // useEffect(() => {
+  //   setOpenWidget(null);
+  // }, [pathname]);
 
   return (
     <div>

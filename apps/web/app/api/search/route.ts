@@ -28,7 +28,9 @@ export async function GET(req: NextRequest) {
       $or: [{ title: regex }, { logConentHTML: regex }],
       isDelete: false,
       isVisibility: true,
-    }).exec();
+    })
+      .populate('author', 'nickname avatar -_id')
+      .exec();
 
     const users = await UserModel.find({
       $or: [{ nickname: regex }, { intro: regex }, { 'career.company': regex }],
