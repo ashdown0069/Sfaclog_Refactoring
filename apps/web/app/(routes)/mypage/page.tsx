@@ -30,6 +30,9 @@ async function MyPage({
       headers: new Headers(headers()),
     },
   );
+  if (!res.ok) {
+    notFound();
+  }
   const data = await res.json();
 
   return (
