@@ -17,11 +17,11 @@
 
 # 주요 변경사항
 
-text editor: quil -> tiptap
-Backend: BaaS(pocketbase) -> mongoose, route handler
-image upload: BaaS(pocketbase) -> firebase storage
-mail: BaaS(pocketbase) -> nodemailer
-doc: storybook 추가
+- text editor: quil -> tiptap
+- Backend: BaaS(pocketbase) -> mongoose, route handler
+- image upload: BaaS(pocketbase) -> firebase storage
+- mail: BaaS(pocketbase) -> nodemailer
+- doc: storybook 추가
 
 ```
   web - npm run dev
