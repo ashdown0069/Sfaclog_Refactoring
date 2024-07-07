@@ -23,10 +23,6 @@ interface BlockEditorProps {
 const BlockEditor = ({ editor, mode, hasHeading }: BlockEditorProps) => {
   const menuContainerRef = useRef(null);
   const editorRef = useRef<PureEditorContent | null>(null);
-  // useEffect(() => {
-  //   editor?.commands.focus('start');
-  // }, [editor]);
-
   const providerValue = useMemo(() => {
     return {};
   }, []);

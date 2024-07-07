@@ -81,6 +81,15 @@ lowlight.registerLanguage('C#', csharp);
 lowlight.registerLanguage('php', php);
 
 export const ExtensionKit = () => [
+  StarterKit.configure({
+    document: false,
+    dropcursor: false,
+    heading: false,
+    horizontalRule: false,
+    blockquote: false,
+    history: false,
+    codeBlock: false,
+  }),
   Document,
   Columns,
   TaskList,
@@ -93,15 +102,6 @@ export const ExtensionKit = () => [
     levels: [1, 2, 3],
   }),
   HorizontalRule,
-  StarterKit.configure({
-    document: false,
-    dropcursor: false,
-    heading: false,
-    horizontalRule: false,
-    blockquote: false,
-    history: false,
-    codeBlock: false,
-  }),
   CodeBlockLowlight.extend({
     addNodeView() {
       return ReactNodeViewRenderer(CodeBlockLowLight);

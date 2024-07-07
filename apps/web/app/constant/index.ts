@@ -121,6 +121,7 @@ export const logPublishCategoryList = [
   },
 ];
 
+//유효성검사용 - all 이 없어야함
 export const LOGS_CATEGORY_LIST = [
   'frontend',
   'backend',

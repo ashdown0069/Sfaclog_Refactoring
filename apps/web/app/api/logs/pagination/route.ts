@@ -13,7 +13,7 @@ const sortingQuery: Record<SortingType, { [key: string]: SortOrder }> = {
 /**
  * Server Side
  * @description getLogsData 함수에서 사용
- * @searchParams categy,page,sort 필요
+ * @searchParams category,page,sort 필요
  * @returns logs[]
  */
 export async function GET(req: NextRequest) {

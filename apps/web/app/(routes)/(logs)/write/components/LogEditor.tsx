@@ -31,6 +31,7 @@ export const LogEditor = ({
 }: LogEditorProps) => {
   //에디터, 글자수 받아오는 훅
   const { editor, characterCount } = useBlockEditor(logContent, 'write');
+
   const [logEditorContent, setLogEditorContent] = useState<any>(null);
   const [logConentHTML, setLogConentHTML] = useState('');
   //제목 상태관리
