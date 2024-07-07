@@ -38,10 +38,6 @@ export const EditCareer = ({ control, register }: EditCareerProps) => {
   }, []);
 
   useEffect(() => {
-    console.log(fields);
-  }, [fields]);
-
-  useEffect(() => {
     //빈 배열일 경우 초기값 추가 , 한개는 무조건 보이도록함
     if (fields.length === 0 && isInit) {
       append({

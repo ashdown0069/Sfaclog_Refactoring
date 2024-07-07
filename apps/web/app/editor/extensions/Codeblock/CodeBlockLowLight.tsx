@@ -17,7 +17,6 @@ export default function CodeBlockLowLight({
   extension,
   editor,
 }: CodeBlockLowLightProps) {
-  console.log('CodeBlockLowLight');
   return (
     <NodeViewWrapper className='relative'>
       <select
