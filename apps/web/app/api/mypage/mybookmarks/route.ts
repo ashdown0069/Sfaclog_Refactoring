@@ -2,7 +2,7 @@ import { connectDB } from '@/lib/db';
 import { LogModel } from '@/models/Log';
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth/auth';
-
+export const maxDuration = 30;
 /**
  * Server Side GET api/mypage/mylog/[id]?page={number}
  * @description mypage 에서 나의 로그들을 가져오는 api

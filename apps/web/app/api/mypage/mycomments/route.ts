@@ -3,7 +3,7 @@ import { auth } from '@/auth/auth';
 import { connectDB } from '@/lib/db';
 import { CommentsModel } from '@/models/Comments';
 import { NextRequest, NextResponse } from 'next/server';
-
+export const maxDuration = 30;
 /**
  * Server Side GET api/mypage/mycomments/[id]?page={number}
  * @description mypage 에서 나의 댓글들을 가져오는 api
