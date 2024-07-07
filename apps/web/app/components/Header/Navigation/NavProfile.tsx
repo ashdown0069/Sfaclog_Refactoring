@@ -4,16 +4,16 @@ import { Avatar } from '@/components/Avatar/Avatar';
 import { LogoutAction } from './action';
 
 interface NavProfileProps {
-  image: string;
+  avatar?: string;
   isOpen: boolean;
   onToggle: () => void;
 }
 
-export function NavProfile({ image, isOpen, onToggle }: NavProfileProps) {
+export function NavProfile({ avatar, isOpen, onToggle }: NavProfileProps) {
   return (
     <div className='relative' title='프로필'>
       <div onClick={onToggle} className='cursor-pointer'>
-        <Avatar size='s' url={image} />
+        <Avatar size='s' url={avatar} />
       </div>
       {isOpen && (
         <div className='shadow-custom absolute right-0 z-40 mt-3 flex max-h-60 w-max flex-col overflow-auto rounded-md bg-white p-2 text-base focus:outline-none sm:text-sm'>
