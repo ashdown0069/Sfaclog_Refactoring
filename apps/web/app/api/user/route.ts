@@ -6,13 +6,54 @@
 import { auth } from '@/auth/auth';
 import { connectDB } from '@/lib/db';
 import { UserModel } from '@/models/User';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { deleteAccountSchema } from '@/lib/validator';
 // /**
 //  * Server Side api/user
 //  * @returns user
 //  */
+export const GET = auth(async (req: NextRequest) => {
+  if (!req.auth) {
+    return NextResponse.json(
+      { success: false, message: 'unauthorized - not logged in' },
+      { status: 400 },
+    );
+  }
+
+  try {
+    await connectDB();
+  } catch (err) {
+    return NextResponse.json(
+      {
+        success: false,
+        message: 'can not connect to database',
+      },
+      { status: 500 },
+    );
+  }
+
+  try {
+    const foundUser = await UserModel.findById(
+      req.auth.user.userId,
+      '-password -_id',
+    ).exec();
+    if (!foundUser) {
+      throw new Error('user not found');
+    }
+
+    return NextResponse.json(
+      { success: true, user: foundUser },
+      { status: 200 },
+    );
+  } catch (e: any) {
+    return NextResponse.json(
+      { success: false, message: e.message },
+      { status: 500 },
+    );
+  }
+});
 // export async function GET(req: NextRequest) {
 //   const searchParams = req.nextUrl.searchParams;
 //   const userId = searchParams.get('userId');

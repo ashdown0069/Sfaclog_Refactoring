@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { CapsuleButton } from '@repo/ui/Button';
 import { NavProfile } from '../NavProfile';
@@ -12,32 +12,39 @@ interface NavAuthBtnProps {
 }
 
 export function NavAuthBtn({ avatar, isLoggedin }: NavAuthBtnProps) {
-  // const pathname = usePathname();
   const [openWidget, setOpenWidget] = useState<
     '알림' | '메시지' | '드롭다운' | null
   >(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const isOpen = openWidget === '드롭다운';
+
   const handleOpenWidget = (
     widgetName: '알림' | '메시지' | '드롭다운' | null,
   ) => {
     setOpenWidget(current => (current === widgetName ? null : widgetName));
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setOpenWidget(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div>
+    <div ref={containerRef}>
       {isLoggedin && (
         <div className='flex items-center gap-5'>
-          {/* <NavNotification
-            userid={session.user.id}
-            isOpen={openWidget === '알림'}
-            onToggle={() => handleOpenWidget('알림')}
-            onClose={handleCloseWidget}
-          />
-          <NavMessage
-            isOpen={openWidget === '메시지'}
-            onToggle={() => handleOpenWidget('메시지')}
-            onClose={handleCloseWidget}
-          /> */}
           <NavProfile
             avatar={avatar}
             isOpen={isOpen}
