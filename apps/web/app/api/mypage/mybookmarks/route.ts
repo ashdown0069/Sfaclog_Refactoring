@@ -2,9 +2,8 @@ import { connectDB } from '@/lib/db';
 import { LogModel } from '@/models/Log';
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth/auth';
-export const maxDuration = 30;
 /**
- * Server Side GET api/mypage/mylog/[id]?page={number}
+ * Server Side GET api/mypage/mylog?page={number}
  * @description mypage 에서 나의 로그들을 가져오는 api
  * @description Server side에서 fetch사용시 헤더에 next/headers로 헤더를 불러와 첨부해야함
  * @description searchParams: page={number}
