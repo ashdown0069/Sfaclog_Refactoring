@@ -27,10 +27,9 @@ export async function UserProfileCard({
   isLoggedIn = false,
 }: UserProfileProps) {
   //ProfileFlwFlwer를 클릭했을 때 소유자면 마이페이지로,
-  // 아니면 유저페이지로 이동
-
   const LinkUrl = isLogOwner ? '/mypage/follow' : `#`;
   const isFollowing = author.follower.includes(userId);
+
   return (
     <ProfileContainer>
       <div className='flex flex-col gap-5'>

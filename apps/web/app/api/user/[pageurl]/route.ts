@@ -74,7 +74,7 @@ export async function GET(
       .exec();
     return NextResponse.json(
       {
-        success: false,
+        success: true,
         user: foundUser,
         logs,
       },

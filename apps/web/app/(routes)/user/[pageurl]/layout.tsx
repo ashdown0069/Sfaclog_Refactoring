@@ -18,7 +18,6 @@ export default async function layout({
   );
   if (!res.ok) notFound();
   const data = await res.json();
-
   //profile card의 유저와 현재로그인한 유저가 같은지 판별
   const isLogOwner = session?.user?.userId === data.user._id;
   //로그인 여부
@@ -28,7 +27,7 @@ export default async function layout({
       <UserProfileCard
         author={data.user}
         isLogOwner={isLogOwner}
-        userId={data.user._id}
+        userId={session?.user.userId}
         authorRecentLogs={data.logs}
         isLoggedIn={isLoggedIn}
       />

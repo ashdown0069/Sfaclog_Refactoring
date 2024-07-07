@@ -47,8 +47,6 @@ const Page = async ({ params }: { params: { id: string } }) => {
   }
   const log = await res.json();
 
-  // console.log('log page =', log);
-
   //로그 작성자가 작성한 최근 로그 3개 가져오기 - UserProfileCard에서 사용
   const res2 = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/logs/user/${log.author._id}`,
@@ -71,6 +69,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
           userId={session?.user.userId}
           isLogOwner={isLogOwner}
           authorRecentLogs={authorRecentLogs}
+          isLoggedIn={!!session}
         />
         <div className='flex size-full flex-col'>
           <LogViewer
