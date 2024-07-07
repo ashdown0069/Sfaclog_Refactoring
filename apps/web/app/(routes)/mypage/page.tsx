@@ -44,7 +44,6 @@ async function MyPage({
         <MyComments commentsAndReplies={data.comments} />
       )}
       {category === 'mybookmarks' && <MyBookmarks logs={data.logs} />}
-      {category === 'recentlylogs' && <RecentlyViewed />}
       {data.length !== 0 && (
         <Pagination
           currentPage={page}
