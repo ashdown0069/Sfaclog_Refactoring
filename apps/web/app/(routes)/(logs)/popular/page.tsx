@@ -1,6 +1,5 @@
 import React from 'react';
 import { CategoryBar } from '@/components/Category/CategoryBar';
-import { PopularLogTools } from '../components/PopularLogTools';
 import { LogCard } from '@/components/Card/LogCard';
 import { LoadMoreLogCards } from '../components/LoadMoreLogCards';
 import { getLogsData } from '@/utils/getLogsData';

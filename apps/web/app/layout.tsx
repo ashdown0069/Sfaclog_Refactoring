@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
-import { ClientSessionProvider } from '@/components/Providers/ClientSessionProvider';
-import { Header } from '@/components/Header/Header';
 const pretendard = localFont({
   src: [
     {
@@ -26,6 +24,9 @@ export const metadata: Metadata = {
     title: 'SFACLOG',
     description: '스팩로그에서 성장의 길을 열어 보세요',
     images: '../public/images/metadata-image.png',
+  },
+  icons: {
+    icon: './favicon.ico',
   },
 };
 

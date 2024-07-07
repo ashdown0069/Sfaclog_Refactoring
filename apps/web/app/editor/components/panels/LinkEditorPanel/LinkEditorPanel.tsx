@@ -61,7 +61,7 @@ export const LinkEditorPanel = ({
   return (
     <Surface className='p-2'>
       <form onSubmit={state.handleSubmit} className='flex items-center gap-2'>
-        <label className='flex cursor-text items-center gap-2 rounded-lg bg-neutral-100 p-2 dark:bg-neutral-900'>
+        <label className='flex cursor-text items-center gap-2 rounded-lg bg-neutral-10 p-2 dark:bg-neutral-900'>
           <Icon name='Link' className='flex-none text-black dark:text-white' />
           <input
             type='url'
