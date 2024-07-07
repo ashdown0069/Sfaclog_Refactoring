@@ -6,10 +6,10 @@
 
 <br />
 
-> 배포 주소： sfaclog-refactoring-web.vercel.app/  
-> 스토리북: https://sfaclog-refactoring-storybook.vercel.app/
-> 원본: https://github.com/ashdown0069/team-5-sfaclog?tab=readme-ov-file
-> 위키 보기： https://github.com/sfac-team-5/team-5-sfaclog/wiki
+- 배포 주소： sfaclog-refactoring-web.vercel.app/  
+- 스토리북: https://sfaclog-refactoring-storybook.vercel.app/
+- 원본: https://github.com/ashdown0069/team-5-sfaclog?tab=readme-ov-file
+- 위키 보기： https://github.com/sfac-team-5/team-5-sfaclog/wiki
 
 # 주요 기술 스택
 
