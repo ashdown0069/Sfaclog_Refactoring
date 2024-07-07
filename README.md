@@ -24,6 +24,10 @@
 - zod 유효성검사 추가
 - doc: storybook 추가
 
+# 참고사항
+- 회원가입시 인증메일은 발송하지만 인증없이 사용가능
+- 소셜로그인은 구글로그인만 지원
+
 ```
   web - npm run dev
   doc - npm run storybook
