@@ -21,6 +21,7 @@
 - Backend: BaaS(pocketbase) -> mongoose, route handler
 - image upload: BaaS(pocketbase) -> firebase storage
 - mail: BaaS(pocketbase) -> nodemailer
+- zod 유효성검사 추가
 - doc: storybook 추가
 
 ```
