@@ -17,7 +17,7 @@ interface LogCardProps {
 export function LogCard({ log }: LogCardProps) {
   //썸네일을 등록하지 않았다면 글내용 미리보기
   const altThumbnail__ContentTitle = log.title; //로그 타이틀
-  const altThumbnail__ContentText = extractTextFromHTML(log.content);
+  const altThumbnail__ContentText = extractTextFromHTML(log.logConentHTML);
 
   return (
     <LogCardContainer>
