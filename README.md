@@ -1,45 +1,29 @@
-# Turborepo starter - Next.js, Typescript, Tailwind CSS, ESlint, Prettier
+# SFACLOG - Refactoring
 
-### Apps and Packages
+개발자들이 서로의 경험을 공유하고 커뮤니티 정보 수집을 통해 자신을 표현할 수 있는 플랫폼
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-- `@repo/tailwind-config` : global tailwind configurations
+리팩토링은 개인이 하였음
 
-### eslint extends and rules
+<br />
 
-```javascript
-extends: [
-    "eslint:recommended",
-    "prettier",
-    require.resolve("@vercel/style-guide/eslint/next"),
-    "plugin:@typescript-eslint/recommended",
-    "eslint-config-turbo",
-    "plugin:tailwindcss/recommended",
-  ],
-rules: {
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "warn",
-    "tailwindcss/no-custom-classname": "off",
-    "@next/next/no-img-element": "off",
-  },
+> 배포 주소： sfaclog-refactoring-web.vercel.app/  
+> 스토리북: https://sfaclog-refactoring-storybook.vercel.app/
+> 원본: https://github.com/ashdown0069/team-5-sfaclog?tab=readme-ov-file
+> 위키 보기： https://github.com/sfac-team-5/team-5-sfaclog/wiki
+
+# 주요 기술 스택
+
+- Next.js , Typescript, Tailwind CSS, zustand, mongoose, next-auth.js, tiptap editor
+
+# 주요 변경사항
+
+text editor: quil -> tiptap
+Backend: BaaS(pocketbase) -> mongoose, route handler
+image upload: BaaS(pocketbase) -> firebase storage
+mail: BaaS(pocketbase) -> nodemailer
+doc: storybook 추가
+
 ```
-
-### prettier rules
-
-```bash
-  printWidth: 80,
-  tabWidth: 2,
-  useTabs: false,
-  semi: true,
-  singleQuote: true,
-  trailingComma: "all",
-  bracketSpacing: true,
-  arrowParens: "avoid",
-  proseWrap: "preserve",
-  endOfLine: "auto",
-  jsxSingleQuote: true,
+  web - npm run dev
+  doc - npm run storybook
 ```

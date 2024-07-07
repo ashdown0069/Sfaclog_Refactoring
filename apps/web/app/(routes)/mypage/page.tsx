@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation';
 import { MyComments } from './components/myComments/MyComments';
 import { MyBookmarks } from './components/myBookmarks/MyBookmarks';
 import { RecentlyViewed } from './components/recentlyViewed/RecentlyViewed';
-import { auth } from '@/auth/auth';
 import { Pagination } from '@/components/Pagination/Pagination';
 import { headers } from 'next/headers';
 async function MyPage({
@@ -14,7 +13,6 @@ async function MyPage({
 }: {
   searchParams: { [key: string]: string | undefined };
 }) {
-  const session = await auth();
   const category = searchParams.category || 'mylogs';
   const page = searchParams.page || '1';
 
