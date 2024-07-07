@@ -19,6 +19,7 @@ export async function MyProfileCard({ user }: { user: IUser }) {
         username={user.nickname}
         userintro={user.intro}
         avatar={user.avatar}
+        pageUrl={user.pageUrl}
       />
       <div className='mt-6'>
         <ProfileFlwFlwer
