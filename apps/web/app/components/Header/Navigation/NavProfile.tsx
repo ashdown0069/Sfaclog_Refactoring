@@ -1,4 +1,4 @@
-import Image from 'next/image';
+'use client';
 import Link from 'next/link';
 import { Avatar } from '@/components/Avatar/Avatar';
 import { LogoutAction } from './action';
@@ -12,24 +12,14 @@ interface NavProfileProps {
 export function NavProfile({ image, isOpen, onToggle }: NavProfileProps) {
   return (
     <div className='relative' title='프로필'>
-      {image.length === 0 ? (
-        <div onClick={onToggle} className='cursor-pointer'>
-          <Avatar size='s' />
-        </div>
-      ) : (
-        <Image
-          src={image}
-          width={30}
-          height={30}
-          alt='avatar'
-          className='cursor-pointer rounded-full object-cover !size-[30px]'
-          onClick={onToggle}
-        />
-      )}
+      <div onClick={onToggle} className='cursor-pointer'>
+        <Avatar size='s' url={image} />
+      </div>
       {isOpen && (
         <div className='shadow-custom absolute right-0 z-40 mt-3 flex max-h-60 w-max flex-col overflow-auto rounded-md bg-white p-2 text-base focus:outline-none sm:text-sm'>
           <Link
             href='/mypage'
+            onClick={onToggle}
             className={`text-B1R16 hover:bg-brand-10 hover:text-brand-100 relative cursor-pointer select-none rounded-md p-3 text-center`}
           >
             마이페이지
