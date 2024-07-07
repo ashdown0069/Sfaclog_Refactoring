@@ -9,11 +9,11 @@
 - 배포 주소： https://sfaclog-refactoring-web.vercel.app/  
 - 스토리북: https://sfaclog-refactoring-storybook.vercel.app/
 - 원본: https://github.com/ashdown0069/team-5-sfaclog?tab=readme-ov-file
-- 위키 보기： https://github.com/sfac-team-5/team-5-sfaclog/wiki
+- 원본 위키 보기： https://github.com/sfac-team-5/team-5-sfaclog/wiki
 
 # 주요 기술 스택
 
-- Next.js , Typescript, Tailwind CSS, zustand, mongoose, next-auth.js, tiptap editor
+- Next.js , Typescript, Tailwind CSS, zustand, mongoose, next-auth.js, firebase storage, tiptap editor
 
 # 주요 변경사항
 
