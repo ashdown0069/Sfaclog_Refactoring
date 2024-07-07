@@ -12,7 +12,10 @@ export async function Navigation() {
       <div className='ml-auto flex items-center gap-10'>
         <NavSearch />
         <NavWriteLogBtn isLoggedin={session ? true : false} />
-        <NavAuthBtn session={session} />
+        <NavAuthBtn
+          isLoggedin={session ? true : false}
+          avatar={session?.user?.image}
+        />
       </div>
     </nav>
   );
