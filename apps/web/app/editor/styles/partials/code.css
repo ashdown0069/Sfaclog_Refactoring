@@ -11,7 +11,7 @@
       @apply bg-gray-600;
     }
     code {
-      @apply bg-transparent p-0 text-inherit;
+      @apply bg-transparent p-0 text-inherit caret-white;
     }
   }
 }
