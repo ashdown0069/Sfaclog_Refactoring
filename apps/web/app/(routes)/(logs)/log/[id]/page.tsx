@@ -62,8 +62,8 @@ const Page = async ({ params }: { params: { id: string } }) => {
   //로그 좋아요 눌렀는지 여부 확인
   const isLikedUser = log.likedUsers.includes(session?.user.userId);
   return (
-    <div className='main__page'>
-      <div className='mt-5 flex gap-16'>
+    <div className='main__page mt-10'>
+      <div className='flex gap-10'>
         <UserProfileCard
           author={log.author}
           userId={session?.user.userId}

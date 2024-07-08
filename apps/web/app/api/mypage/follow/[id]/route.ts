@@ -1,4 +1,3 @@
-import { auth } from '@/auth/auth';
 import { connectDB } from '@/lib/db';
 import { UserModel } from '@/models/User';
 import { isNumber } from 'lodash';
@@ -47,8 +46,8 @@ export async function GET(
       _id: userId,
       isDelete: { $ne: true },
     })
-      .populate('follower', 'nickname avatar intro -_id')
-      .populate('following', 'nickname avatar intro -_id')
+      .populate('follower', 'nickname avatar intro pageUrl -_id')
+      .populate('following', 'nickname avatar intro pageUrl -_id')
       .lean()
       .exec();
     if (!user) {

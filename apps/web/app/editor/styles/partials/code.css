@@ -1,6 +1,6 @@
 .ProseMirror {
   code {
-    @apply text-gray-200 !bg-gray-800 px-1 py-2 !rounded-sm font-mono;
+    @apply text-gray-200 !bg-gray-800 px-3 py-2 !rounded-md font-mono caret-white;
     &::selection {
       @apply bg-gray-500;
     }

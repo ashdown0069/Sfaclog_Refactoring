@@ -14,7 +14,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
   }
   const log = await res.json();
   return (
-    <div className='mx-auto w-full max-w-[960px]'>
+    <div className='mx-auto w-full max-w-[960px] mt-5'>
       <LogEditor
         logContent={log.content}
         logTags={log.tags}

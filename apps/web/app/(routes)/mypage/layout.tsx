@@ -25,7 +25,7 @@ export default async function Layout({
   }
 
   return (
-    <main className='main__page mt-20 flex gap-[83px]'>
+    <main className='main__page mt-10 flex gap-10'>
       <MyProfileCard user={data.user} />
       {children}
     </main>

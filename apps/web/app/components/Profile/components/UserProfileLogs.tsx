@@ -12,7 +12,7 @@ export function UserProfileLogs({
   pageUrl,
 }: UserProfileLogsProps) {
   return (
-    <div className='flex flex-col gap-3'>
+    <div className='flex flex-col gap-3  w-full'>
       <div className='flex items-center justify-between'>
         <span className='text-B1B16 text-text-primary'>최근 작성한 글</span>
         <Link href={`/user/${pageUrl}`}>
@@ -21,14 +21,14 @@ export function UserProfileLogs({
       </div>
       <div className='flex flex-col gap-4'>
         {authorRecentLogs.map((log: ILog, idx: number) => (
-          <Link href={`/log/${log._id}`} key={idx} className='flex gap-2'>
+          <Link href={`/log/${log._id}`} key={idx} className='block w-full'>
             <div className='flex flex-col gap-1'>
-              <div className='text-B2M14 text-text-primary truncate'>
+              <p className='text-B2M14 text-text-primary truncate'>
                 {log.title}
-              </div>
-              <div className='text-B3R12 text-text-secondary'>
+              </p>
+              <p className='text-B3R12 text-text-secondary truncate'>
                 {log.updatedAt.toString().slice(0, 10)}
-              </div>
+              </p>
             </div>
           </Link>
         ))}
