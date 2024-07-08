@@ -40,6 +40,7 @@ export const GET = auth(async (req: NextRequest) => {
       likedUsers: userId,
       isDelete: { $ne: true },
     })
+      .populate('author', 'avatar nickname pageUrl -_id')
       .sort({ createdAt: -1 })
       .limit(6)
       .skip((parseInt(page) - 1) * 6)

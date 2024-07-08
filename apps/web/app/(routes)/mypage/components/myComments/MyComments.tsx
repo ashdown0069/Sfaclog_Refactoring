@@ -1,6 +1,5 @@
 import { MyCommentCard } from '@/components/Card/MyCommentCard';
 import { IComment } from '@/models/Comments';
-
 import React from 'react';
 import { MypageNotFound } from '../MypageNotFound';
 export interface ICommentandReply extends IComment {
@@ -13,13 +12,15 @@ interface myCommentsProps {
 export const MyComments = ({ commentsAndReplies }: myCommentsProps) => {
   return (
     <section className='size-full'>
-      {commentsAndReplies.length > 0 && (
+      {commentsAndReplies && commentsAndReplies.length > 0 && (
         <ul className='flex w-full flex-col items-center gap-3'>
-          {commentsAndReplies.map((comment: ICommentandReply) => (
-            <li key={comment._id} className='w-full'>
-              <MyCommentCard comment={comment} />
-            </li>
-          ))}
+          {commentsAndReplies.map((comment: ICommentandReply) =>
+            comment && comment._id ? (
+              <li key={comment._id} className='w-full'>
+                <MyCommentCard comment={comment} />
+              </li>
+            ) : null,
+          )}
         </ul>
       )}
       {commentsAndReplies.length === 0 && (
