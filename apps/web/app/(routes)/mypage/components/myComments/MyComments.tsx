@@ -1,20 +1,20 @@
 import { MyCommentCard } from '@/components/Card/MyCommentCard';
-import { IComment } from '@/models/Comments';
+import type { IComment } from '@/models/Comments';
 import React from 'react';
 import { MypageNotFound } from '../MypageNotFound';
-export interface ICommentandReply extends IComment {
-  logId: string;
-  title: string;
+import type { ILog } from '@/models/Log';
+export interface ExtendedIComment extends IComment {
+  log: Pick<ILog, '_id' | 'title'>;
 }
 interface myCommentsProps {
-  commentsAndReplies: ICommentandReply[];
+  commentsAndReplies: ExtendedIComment[];
 }
 export const MyComments = ({ commentsAndReplies }: myCommentsProps) => {
   return (
     <section className='size-full'>
       {commentsAndReplies && commentsAndReplies.length > 0 && (
         <ul className='flex w-full flex-col items-center gap-3'>
-          {commentsAndReplies.map((comment: ICommentandReply) =>
+          {commentsAndReplies.map((comment: ExtendedIComment) =>
             comment && comment._id ? (
               <li key={comment._id} className='w-full'>
                 <MyCommentCard comment={comment} />

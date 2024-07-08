@@ -49,7 +49,7 @@ export async function MyProfileCard({ user }: { user: IUser }) {
           title='내가 쓴 댓글'
         />
         <MyProfileLink href='/mypage?category=mybookmarks' title='관심 로그' />
-        <MyProfileLink href='/mypage/recently-log' title='최근 본 로그' />
+        {/* <MyProfileLink href='/mypage/recently-log' title='최근 본 로그' /> */}
       </div>
       <Hr />
       <div className='flex flex-col gap-3'>

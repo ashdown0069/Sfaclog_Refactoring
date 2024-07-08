@@ -2,14 +2,12 @@
 import React, { useState } from 'react';
 import { MyCommentCardContainer } from './components/CardContainers';
 import { IconCancelBlack, IconReplyArrow } from '@repo/ui/Icon';
-import type { ICommentandReply } from '@/(routes)/mypage/components/myComments/MyComments';
 import Link from 'next/link';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-interface MyCommentCardProps {
-  comment: ICommentandReply;
-}
-export const MyCommentCard = ({ comment }: MyCommentCardProps) => {
+import { LoadingSpinner } from '../Spinner/LoadingSpinner';
+import type { ExtendedIComment } from '@/(routes)/mypage/components/myComments/MyComments';
+export const MyCommentCard = ({ comment }: { comment: ExtendedIComment }) => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const handleDeleteComment = async () => {
@@ -29,6 +27,14 @@ export const MyCommentCard = ({ comment }: MyCommentCardProps) => {
       router.refresh();
     }
   };
+
+  if (!comment || !comment.log) {
+    return (
+      <div className='flex justify-center items-center my-10 mx-auto'>
+        <LoadingSpinner />
+      </div>
+    );
+  }
 
   return (
     <MyCommentCardContainer>
