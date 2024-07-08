@@ -13,7 +13,7 @@ export function NavProfile({ avatar, isOpen, onToggle }: NavProfileProps) {
   return (
     <div className='relative' title='프로필'>
       <div onClick={onToggle} className='cursor-pointer'>
-        <Avatar size='s' url={avatar} />
+        <Avatar size='s' url={avatar || undefined} />
       </div>
       {isOpen && (
         <div className='shadow-custom absolute right-0 z-40 mt-3 flex max-h-60 w-max flex-col overflow-auto rounded-md bg-white p-2 text-base focus:outline-none sm:text-sm'>

@@ -52,7 +52,7 @@ export function LogCard({ log }: LogCardProps) {
       >
         <div className='flex w-full justify-between'>
           <div className='flex items-center gap-2'>
-            <Avatar size='xs' url={log.author.avatar} />
+            <Avatar size='xs' url={log.author.avatar || undefined} />
             <span className='text-B3R12 hover:underline'>
               {log?.author?.nickname}
             </span>

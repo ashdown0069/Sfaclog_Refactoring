@@ -34,11 +34,13 @@ export const LogViewer = ({
             <ViewerHeader log={log} isLogOwner={isLogOwner} />
             <div className='border-neutral-20 my-1 border-t-2' />
             <BlockEditor editor={editor} mode='view' hasHeading={hasHeading} />
-            {log.tags.map((tag, idx) => (
-              <Chip size='large' key={idx}>
-                <span className='text-B3M12'># {tag}</span>
-              </Chip>
-            ))}
+            <div className='flex gap-2'>
+              {log.tags.map((tag, idx) => (
+                <Chip size='large' key={idx}>
+                  <span className='text-B3M12'># {tag}</span>
+                </Chip>
+              ))}
+            </div>
             <div className='my-3 flex justify-center'>
               <ViewerLikeBtn
                 isLogOwner={isLogOwner}

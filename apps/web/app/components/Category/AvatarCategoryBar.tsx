@@ -47,7 +47,7 @@ export const AvatarCategoryBar = ({
         {followingUsers.map((user, idx) => (
           <SwiperSlide key={idx} className='!w-fit'>
             <Link href={`/following?user=${user.nickname}`}>
-              <Avatar size='l' type='user' url={user.avatar} />
+              <Avatar size='l' type='user' url={user.avatar || undefined} />
               <div className='text-center mt-2 text-B3R12'>{user.nickname}</div>
             </Link>
           </SwiperSlide>
