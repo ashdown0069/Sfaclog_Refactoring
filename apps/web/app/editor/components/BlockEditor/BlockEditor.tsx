@@ -1,7 +1,5 @@
 //@ts-nocheck
 'use client';
-// import '@/styles/editorSettings.css';
-// import "/styles/global.css";
 import { Editor, EditorContent, PureEditorContent } from '@tiptap/react';
 import { useMemo, useRef } from 'react';
 import { LinkMenu } from '../menus';
@@ -35,7 +33,7 @@ const BlockEditor = ({ editor, mode, hasHeading }: BlockEditorProps) => {
     <>
       <EditorContext.Provider value={providerValue}>
         <div className={`min-h-full`} ref={menuContainerRef}>
-          <div className='relative flex flex-1 flex-col overflow-hidden'>
+          <div className='relative flex flex-1 flex-col'>
             <EditorContent
               editor={editor}
               ref={editorRef}

@@ -30,7 +30,6 @@ export default function MainCarousel() {
             prevEl: '.custom-prev',
             nextEl: '.custom-next',
           }}
-          // onSlideChange={swiper => handleSlideChange(swiper)}
         >
           {Array.from({ length: 5 }, () => {}).map((v, idx) => (
             <SwiperSlide
@@ -42,7 +41,7 @@ export default function MainCarousel() {
                 src={`/images/carousel${idx + 1}.png`}
                 alt='image'
                 sizes='100%'
-                unoptimized
+                quality={100}
                 className={`rounded-md object-cover`}
               />
             </SwiperSlide>

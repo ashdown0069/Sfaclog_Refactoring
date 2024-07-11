@@ -7,7 +7,6 @@ import { Input } from '@repo/ui';
 import { useState } from 'react';
 import { ModalLogPublishForm } from './Modal/ModalLogPublishForm';
 import { TagsInput } from './TagsInput';
-import type { ILog } from '@/models/Log';
 interface LogEditorProps {
   logContent: any | null;
   logTags?: string[];
@@ -68,10 +67,19 @@ export const LogEditor = ({
     }
     setIsOpen(() => true);
   };
+
+  const [test, setTest] = useState(true);
+  const handleHeading = () => {
+    if (editor && test) {
+      editor.chain().focus().setHeading({ level: 1 }).run();
+      setTest(false);
+    }
+  };
   return (
     <>
       {editor && (
         <>
+          <button onClick={handleHeading}>헤딩</button>
           <div className='mx-auto flex w-3/4 justify-center'>
             <Input
               value={logTitleState}
