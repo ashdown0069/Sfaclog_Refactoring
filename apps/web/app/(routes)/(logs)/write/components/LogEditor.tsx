@@ -79,7 +79,6 @@ export const LogEditor = ({
     <>
       {editor && (
         <>
-          <button onClick={handleHeading}>헤딩</button>
           <div className='mx-auto flex w-3/4 justify-center'>
             <Input
               value={logTitleState}
