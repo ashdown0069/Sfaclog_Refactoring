@@ -11,7 +11,7 @@ export function extractTextFromHTML(htmlString: string, maxCount = 5) {
   let count = 0;
   while ((match = regex.exec(htmlString)) !== null && count < maxCount) {
     // 태그 제거 후 순수 텍스트만 추출
-    let text = match[1].replace(/<[^>]*>/g, '');
+    const text = match[1].replace(/<[^>]*>/g, '');
     // 앞뒤 공백 제거 후 결과 배열에 추가
     result.push(text.trim());
     count++;

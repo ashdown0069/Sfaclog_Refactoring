@@ -6,11 +6,9 @@ import { submitAction } from '../action';
 import { useRouter } from 'next/navigation';
 import { Input } from '@repo/ui';
 import { BoxButton } from '@repo/ui/Button';
-import { IconKakao, IconNaver } from '@repo/ui/Icon';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginSchema } from '@/lib/validator';
 import type { LoginInputDataType } from '@/lib/validator';
-import toast from 'react-hot-toast';
 
 export default function LoginForm() {
   const router = useRouter();

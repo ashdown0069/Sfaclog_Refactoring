@@ -10,7 +10,7 @@ import {
 } from '@repo/ui/Icon';
 import { CapsuleButton } from '@repo/ui/Button';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 const TOPBAR_CATEGORY_LIST = [
   {
     id: '1',

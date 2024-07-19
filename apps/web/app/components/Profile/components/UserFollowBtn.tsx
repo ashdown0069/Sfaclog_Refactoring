@@ -2,7 +2,6 @@
 import { CapsuleButton } from '@repo/ui/Button';
 import { IconPlusWhite, IconCancelWhite } from '@repo/ui/Icon';
 import React, { useState } from 'react';
-import { handleFollow } from '../action';
 import { useRouter } from 'next/navigation';
 interface UserFollowBtnProps {
   isFollowing: boolean;

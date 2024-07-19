@@ -6,13 +6,6 @@ interface AvatarProps {
   size: 'xs' | 's' | 'm' | 'l';
 }
 
-const avatarSize = {
-  xs: 25,
-  s: 32,
-  m: 50,
-  l: 80,
-};
-
 const sizeClasses = {
   xs: 'w-[25px] h-[25px]',
   s: 'w-8 h-8',

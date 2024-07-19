@@ -1,8 +1,4 @@
 'use client';
-
-// import { HocuspocusProvider } from '@hocuspocus/provider'
-
-// import { API } from '@/editor/lib/api';
 import { ImageUploadToFirebase } from '@/lib/firebase';
 import {
   BlockquoteFigure,

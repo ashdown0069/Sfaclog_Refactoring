@@ -1,7 +1,7 @@
 import { auth } from '@/auth/auth';
 import { connectDB } from '@/lib/db';
 import { UserModel } from '@/models/User';
-import { revalidatePath, revalidateTag } from 'next/cache';
+import { revalidateTag } from 'next/cache';
 import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
 

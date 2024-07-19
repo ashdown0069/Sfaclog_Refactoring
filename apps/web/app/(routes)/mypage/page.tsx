@@ -5,7 +5,6 @@ import { myPageCategoryList } from '@/constant';
 import { notFound } from 'next/navigation';
 import { MyComments } from './components/myComments/MyComments';
 import { MyBookmarks } from './components/myBookmarks/MyBookmarks';
-import { RecentlyViewed } from './components/recentlyViewed/RecentlyViewed';
 import { Pagination } from '@/components/Pagination/Pagination';
 import { headers } from 'next/headers';
 async function MyPage({

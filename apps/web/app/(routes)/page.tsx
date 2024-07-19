@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import { PopularLogs } from './components/PopularLogs';
 import Footer from '@/components/Footer/Footer';

@@ -28,25 +28,31 @@
   }
 
   ul[data-type='taskList'] {
-    @apply list-none p-0;
+    list-style: none !important;
+    padding: 0 !important;
 
     p {
-      @apply m-0;
+      margin: 0 !important;
     }
 
     li {
-      @apply flex;
+      display: flex !important;
 
       > label {
-        @apply grow-0 shrink-0 flex-auto mt-1 mr-2 select-none;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
+        flex: 1 1 auto;
+        margin-top: 0.25rem !important;
+        margin-right: 0.5rem !important;
+        user-select: none !important;
       }
 
       > div {
-        @apply flex-auto;
+        flex: 1 1 auto;
       }
 
       &[data-checked='true'] {
-        @apply line-through;
+        text-decoration: line-through !important;
       }
     }
   }

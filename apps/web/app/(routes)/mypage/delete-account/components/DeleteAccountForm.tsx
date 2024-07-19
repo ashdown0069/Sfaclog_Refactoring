@@ -5,7 +5,6 @@ import { Selectbox, Input } from '@repo/ui';
 import { CautionImg } from '@public/svgs';
 import { useForm } from 'react-hook-form';
 import { signOut } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
 const selectList = [
@@ -24,7 +23,6 @@ interface DeleteAccountType {
 
 export function DeleteAccountForm() {
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
 
   const {
     register,

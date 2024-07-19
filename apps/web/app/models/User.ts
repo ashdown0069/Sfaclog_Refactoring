@@ -1,5 +1,4 @@
 import mongoose, { Schema, Model, Types } from 'mongoose';
-import { boolean } from 'zod';
 require('./Log');
 require('./Comments');
 export interface ICareer {

@@ -1,7 +1,6 @@
-import { ILog } from '@/models/Log';
+import type { ILog } from '@/models/Log';
 import React from 'react';
 import { MypageNotFound } from '../MypageNotFound';
-import { MyLogCard } from '@/components/Card/MyLogCard';
 import { LogCard } from '@/components/Card/LogCard';
 
 interface MyBookmarksProps {

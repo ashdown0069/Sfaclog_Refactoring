@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connectDB } from '@/lib/db';
 import { UserModel } from '@/models/User';
-import { auth } from '@/auth/auth';
 import { LogModel } from '@/models/Log';
 
 // export const GET = auth(
