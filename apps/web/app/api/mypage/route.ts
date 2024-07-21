@@ -117,14 +117,23 @@ export const PATCH = auth(async (req: NextRequest) => {
     currentUser.intro = result.data.intro;
     currentUser.interests = interestResult.data || [];
 
-    //현재 아바타가 존재할 경우 파이어베이스에서 삭제
+    //기존 아바타 URL이 존재하고
+    //파이어베이스 이미지 주소로 시작하면
+    //기존 파이어베이스 이미지삭제하고 링크교체
     if (
       currentUser.avatar !== '' &&
-      currentUser.avatar.startsWith('https://firebasestorage.googleapis.com')
+      data.url.startsWith('https://firebasestorage.googleapis.com')
     ) {
       DeleteAvatarFromFireBase(currentUser.avatar);
+      currentUser.avatar = data.url;
+    } else if (
+      currentUser.avatar == '' &&
+      data.url.startsWith('https://firebasestorage.googleapis.com')
+    ) {
+      //아바타 URL이 존재하지않고 파이어베이스 이미지 URL의 경우 링크 교체
+      currentUser.avatar = data.url;
     }
-    currentUser.avatar = data.url;
+
     const updatedUser = await currentUser.save();
     return NextResponse.json(
       {
