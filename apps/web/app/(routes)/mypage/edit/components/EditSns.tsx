@@ -107,6 +107,7 @@ interface EditSnsProps {
 const MAX__INPUT = 8; //SNS 등록 최대 갯수
 
 export const EditSns = ({ register, setValue, control }: EditSnsProps) => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   //배열로 된 sns 편집을 위한 훅
   const { append, fields, prepend, remove, replace } = useFieldArray({
     control,
@@ -147,7 +148,11 @@ export const EditSns = ({ register, setValue, control }: EditSnsProps) => {
       <p className='text-B1M16 text-text-primary'>SNS</p>
       {fields.map((field, idx) => {
         return (
-          <div key={field.id} className='flex h-fit gap-2'>
+          <div
+            key={field.id}
+            className={`flex h-fit gap-2 relative ${activeIndex == idx ? 'z-20' : 'z-10'}`}
+            onClick={() => setActiveIndex(idx)}
+          >
             <Selectbox
               width='short'
               selectList={selectList}
