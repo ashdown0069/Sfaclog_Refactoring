@@ -53,8 +53,10 @@ export const POST = auth(async (req: NextRequest) => {
     });
     await newLog.save();
 
-    //최신 로그 페이지 캐시 최신화
+    //최신 로그 페이지 캐시 무효화
     revalidatePath('/latest', 'page');
+    //마이페이지 내 로그 캐시 무효화
+    revalidateTag('newLog');
 
     return NextResponse.json(
       {
@@ -143,6 +145,7 @@ export async function PUT(req: NextRequest, res: NextResponse) {
       log.logConentHTML = data.logConentHTML;
 
       await log.save();
+      //수정했으므로 로그 캐시무효화
       revalidateTag('modify');
       return NextResponse.json(
         {

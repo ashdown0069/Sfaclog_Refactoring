@@ -6,7 +6,6 @@ import { useState } from 'react';
 import type { IComment, IReplyComment } from '@/models/Comments';
 import type { IUser } from '@/models/User';
 import type { Types } from 'mongoose';
-import { ReplyInputForm } from './ReplyInputForm';
 import { ReplyItem } from './ReplyItem';
 
 interface CommentsProps {

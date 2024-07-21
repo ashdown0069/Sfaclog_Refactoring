@@ -27,6 +27,7 @@ async function MyPage({
     {
       method: 'GET',
       headers: new Headers(headers()),
+      next: { tags: ['comment', 'like', 'newLog', 'modify'] },
     },
   );
   if (!res.ok) {

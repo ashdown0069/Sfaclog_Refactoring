@@ -4,7 +4,7 @@ import { LogModel } from '@/models/Log';
 import { auth } from '@/auth/auth';
 
 /**
- * Client Side: POST /api/logs/comments
+ * Client Side: GET /api/logs/[id]
  * @description log/[id]에 해당하는 로그 정보를 가져오는 API
  * @param id 로그의 _id
  * @returns { Ilog } 리턴
@@ -26,20 +26,6 @@ export async function GET(
   }
   const logId = params.id;
   try {
-    // const logs = await LogModel.findById(logId)
-    //   .populate('author', 'following follower nickname avatar intro sns career')
-    //   .populate({
-    //     path: 'comments',
-    //     populate: [
-    //       { path: 'author', select: 'nickname avatar' },
-    //       {
-    //         path: 'replies',
-    //         populate: { path: 'author', select: 'nickname avatar' },
-    //       },
-    //     ],
-    //   })
-    //   .lean()
-    //   .exec();
     const logs = await LogModel.findByIdAndUpdate(
       logId,
       { $inc: { views: 1 } }, // views 필드 증가

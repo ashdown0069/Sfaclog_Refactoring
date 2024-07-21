@@ -71,7 +71,7 @@ export const DELETE = auth(
         });
       }
       await foundComment.save();
-      revalidatePath('/mypage');
+      revalidatePath('comment');
       return NextResponse.json(
         { success: true, message: 'comments have been deleted' },
         { status: 200 },

@@ -49,7 +49,6 @@ export const POST = auth(async (req: NextRequest) => {
       throw new Error('Comment not found');
     }
 
-    console.log('data= ', data);
     if (foundComment && foundComment.replies) {
       foundComment.replies.push({
         author: new Types.ObjectId(userId),

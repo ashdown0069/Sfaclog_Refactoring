@@ -2,6 +2,7 @@
 import { connectDB } from '@/lib/db';
 import { auth } from '@/auth/auth';
 import { LogModel } from '@/models/Log';
+import { revalidatePath, revalidateTag } from 'next/cache';
 
 /**
  *
@@ -37,6 +38,7 @@ export const handleLogLike = async (logId: string) => {
     log.likes++;
     log.likedUsers.push(session.user.userId);
     await log.save();
+    revalidateTag('like');
     return true;
   } catch (error) {
     console.error(error);
