@@ -60,7 +60,7 @@ export const GET = auth(async (req: NextRequest) => {
       if (!foundUser) throw new Error('can not found user you searched for.');
       logs = await LogModel.find({ author: foundUser._id }).populate(
         'author',
-        'nickname -_id',
+        'nickname avatar -_id',
       );
     }
 
