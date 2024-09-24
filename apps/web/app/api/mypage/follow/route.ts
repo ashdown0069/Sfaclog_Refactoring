@@ -76,6 +76,11 @@ export const PATCH = auth(async (req: NextRequest) => {
       //배열안에 존재하지 않으면 팔로우
       currentUser.following.push(addedUser._id);
       addedUser.follower.push(currentUser._id);
+      addedUser.notifications.push({
+        notiType: 'follow',
+        isRead: false,
+        notifierId: currentUser._id,
+      });
     }
 
     await currentUser.save();

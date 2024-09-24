@@ -40,7 +40,7 @@ export function LogCard({ log }: LogCardProps) {
         </div>
         <div className='flex w-full items-start justify-between'>
           <CardCategory category={log.category} />
-          <CardDate date={log.createdAt} />
+          <CardDate date={log.createdAt.toString()} />
         </div>
         <div>
           <CardTitle title={log.title} />

@@ -1,6 +1,39 @@
 import mongoose, { Schema, Model, Types } from 'mongoose';
 require('./Log');
 require('./Comments');
+
+export interface INotification {
+  _id?: string;
+  notiType: 'comment' | 'likes' | 'follow';
+  isRead: boolean;
+  notifierId: string | Types.ObjectId;
+  triggerLog?: string | Types.ObjectId;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+}
+
+const NotificationSchema = new Schema<INotification>(
+  {
+    notiType: {
+      type: String,
+      enum: ['comment', 'likes', 'follow'],
+      required: true,
+    },
+    isRead: { type: Boolean, default: false },
+    notifierId: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: 'UserModel',
+    },
+    triggerLog: {
+      type: Schema.Types.ObjectId,
+      ref: 'LogModel',
+      default: null,
+    },
+  },
+  { timestamps: true },
+);
+
 export interface ICareer {
   company?: string;
   position?: string;
@@ -36,6 +69,7 @@ export interface IUser {
   createdAt: Date | string;
   isDelete: boolean;
   isOAuth: boolean;
+  notifications: INotification[];
 }
 
 interface IUserMethods {
@@ -96,6 +130,10 @@ const UserSchema = new Schema<IUser, UserModelType, IUserMethods>(
       type: Schema.Types.ObjectId,
       default: () => new mongoose.Types.ObjectId(),
       sparse: true,
+    },
+    notifications: {
+      type: [NotificationSchema],
+      default: [],
     },
   },
   { timestamps: true, minimize: false },

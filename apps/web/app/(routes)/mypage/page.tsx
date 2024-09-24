@@ -7,6 +7,7 @@ import { MyComments } from './components/myComments/MyComments';
 import { MyBookmarks } from './components/myBookmarks/MyBookmarks';
 import { Pagination } from '@/components/Pagination/Pagination';
 import { headers } from 'next/headers';
+import Notifications from './components/myNotifications/Notifications';
 async function MyPage({
   searchParams,
 }: {
@@ -34,7 +35,7 @@ async function MyPage({
     notFound();
   }
   const data = await res.json();
-
+  console.log(data);
   return (
     <div className='flex w-full flex-col'>
       <h1 className='text-primary text-H1M24 mb-8'>나의 활동</h1>
@@ -44,6 +45,9 @@ async function MyPage({
         <MyComments commentsAndReplies={data.comments} />
       )}
       {category === 'mybookmarks' && <MyBookmarks logs={data.logs} />}
+      {category === 'mynotifications' && (
+        <Notifications notifications={data.notifications} />
+      )}
       {data.length !== 0 && (
         <Pagination
           currentPage={page}

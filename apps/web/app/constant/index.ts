@@ -28,6 +28,10 @@ export const myPageCategoryList = [
     title: '관심 로그',
     category: 'mybookmarks',
   },
+  {
+    title: '알림',
+    category: 'mynotifications',
+  },
 ];
 
 //셀렉트 박스에서 사용할 정렬 옵션 - 사용중 아님

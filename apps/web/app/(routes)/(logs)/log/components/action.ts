@@ -3,6 +3,8 @@ import { connectDB } from '@/lib/db';
 import { auth } from '@/auth/auth';
 import { LogModel } from '@/models/Log';
 import { revalidatePath, revalidateTag } from 'next/cache';
+import { UserModel } from '@/models/User';
+import mongoose from 'mongoose';
 
 /**
  *
@@ -37,6 +39,20 @@ export const handleLogLike = async (logId: string) => {
     //좋아요를 누른 유저가 좋아요를 누르지 않았다면 좋아요 추가
     log.likes++;
     log.likedUsers.push(session.user.userId);
+
+    //로그의 소유자에게 알림보내기
+    const logOwnerId = log.author;
+    const foundUser = await UserModel.findById(logOwnerId).exec();
+    const notifierId = new mongoose.Types.ObjectId(String(session.user.userId));
+    if (!foundUser) return false;
+    foundUser.notifications.push({
+      notiType: 'likes',
+      isRead: false,
+      notifierId: notifierId,
+      triggerLog: log._id,
+    });
+    console.log('noti', foundUser.notifications);
+    await foundUser.save();
     await log.save();
     revalidateTag('like');
     return true;

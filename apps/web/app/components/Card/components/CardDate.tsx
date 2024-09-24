@@ -1,7 +1,7 @@
 import { formatDate } from '@/utils/formatUtils';
 
 interface CardDateProps {
-  date: Date;
+  date: string;
 }
 
 export function CardDate({ date }: CardDateProps) {

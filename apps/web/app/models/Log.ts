@@ -12,7 +12,6 @@ export interface ILog {
   content: any;
   logConentHTML: string;
   isVisibility: boolean;
-  blogVisibility: 'public' | 'private';
   isDelete: boolean;
   likedUsers: string[];
   likes: number;

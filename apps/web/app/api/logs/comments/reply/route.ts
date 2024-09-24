@@ -6,6 +6,7 @@ import { Types } from 'mongoose';
 import { CommentSchema } from '@/lib/validator';
 import { connectDB } from '@/lib/db';
 import { CommentsModel } from '@/models/Comments';
+import { UserModel } from '@/models/User';
 
 /**
  * Client Side: POST /api/logs/comments/reply
@@ -55,8 +56,8 @@ export const POST = auth(async (req: NextRequest) => {
         content: parsedContent,
       });
     }
+    await foundComment.save();
 
-    await foundComment?.save();
     const savedLog = await LogModel.findById(data.logId)
       .populate({
         path: 'comments',
@@ -66,11 +67,58 @@ export const POST = auth(async (req: NextRequest) => {
         ],
       })
       .exec();
+    if (!savedLog) {
+      throw new Error('Log not found');
+    }
+
+    //로그와 코멘트 소유자에게 알림 보내기
+    const commentOwnerId = foundComment.author;
+    const logOwnerId = savedLog.author;
+    const replyOwnerId = userId;
+
+    //답변시
+    //내 소유 코멘트의 답변에는 알림 x
+    //내 소유의 로그의 답변에는 알림 x
+    if (
+      replyOwnerId.toString() !== logOwnerId.toString() &&
+      replyOwnerId !== commentOwnerId.toString()
+    ) {
+      //로그의 소유자에게 알림
+      const logOwnerUser = await UserModel.findById(logOwnerId).exec();
+      if (!logOwnerUser) {
+        throw new Error('User not found');
+      }
+      logOwnerUser.notifications.push({
+        notiType: 'comment',
+        isRead: false,
+        notifierId: new Types.ObjectId(replyOwnerId),
+        triggerLog: savedLog._id,
+      });
+      await logOwnerUser.save();
+
+      //로그 소유자와 코멘트 소유자가 같지 않으면 알림보내기
+      if (logOwnerUser._id.toString() !== commentOwnerId.toString()) {
+        //코멘트의 소유자에게 알림
+        const commentOwnerUser =
+          await UserModel.findById(commentOwnerId).exec();
+        if (!commentOwnerUser) {
+          throw new Error('User not found');
+        }
+        commentOwnerUser.notifications.push({
+          notiType: 'comment',
+          isRead: false,
+          notifierId: new Types.ObjectId(replyOwnerId),
+          triggerLog: savedLog._id,
+        });
+        await commentOwnerUser.save();
+      }
+    }
+
     revalidateTag('comment');
     return NextResponse.json(
       {
         success: true,
-        comments: savedLog?.comments,
+        comments: savedLog.comments,
         message: 'comment added',
       },
       { status: 200 },

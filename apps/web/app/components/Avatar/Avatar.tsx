@@ -25,7 +25,7 @@ export function Avatar({
       {type === 'user' ? (
         <Image src={url} alt='profile image' fill className='object-cover' />
       ) : (
-        <div className='bg-brand-90 text-white font-semibold flex items-center justify-center w-full h-full rounded-full'>
+        <div className='bg-brand-90 flex size-full items-center justify-center rounded-full font-semibold text-white'>
           ALL
         </div>
       )}

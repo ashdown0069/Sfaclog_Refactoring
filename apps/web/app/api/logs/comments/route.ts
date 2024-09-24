@@ -5,6 +5,7 @@ import { revalidateTag } from 'next/cache';
 import { connectDB } from '@/lib/db';
 import { CommentsModel } from '@/models/Comments';
 import { CommentSchema } from '@/lib/validator';
+import { UserModel } from '@/models/User';
 
 /**
  * Client Side: POST /api/logs/comments
@@ -57,6 +58,24 @@ export async function POST(req: NextRequest, res: NextResponse) {
       }
       log.comments.push(newComment);
       await newComment.save();
+
+      //log의 소유자에게 알림보내기
+      //로그의 소유자와 코멘트 소유자와 같지 않으면 알림 x
+      const logOwnerId = log.author;
+      if (logOwnerId !== userId) {
+        const foundUser = await UserModel.findById(logOwnerId).exec();
+        if (!foundUser) {
+          throw new Error('user not found');
+        }
+        foundUser.notifications.push({
+          notiType: 'comment',
+          isRead: false,
+          notifierId: userId,
+          triggerLog: log._id,
+        });
+        await foundUser.save();
+      }
+
       await log.save();
       const savedLog = await LogModel.findById(log?._id)
         .populate({

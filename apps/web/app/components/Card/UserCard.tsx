@@ -21,7 +21,7 @@ export function UserCard({ user }: UserCardProps) {
           <CardTag key={item} tag={item} />
         ))}
       </div>
-      <div className='mt-6 text-B2M14 truncate'>{user.intro || ''}</div>
+      <div className='text-B2M14 mt-6 truncate'>{user.intro || ''}</div>
     </div>
   );
 }
