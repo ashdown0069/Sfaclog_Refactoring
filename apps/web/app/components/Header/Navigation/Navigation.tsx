@@ -4,7 +4,6 @@ import { NavSearch } from './components/NavSearch';
 import { NavLinks } from './components/NavLinks';
 import { NavWriteLogBtn } from './NavWriteLogBtn';
 import NavGuestBtn from './components/NavGuestBtn';
-import { headers } from 'next/headers';
 import { CountNotification } from './CountNotification';
 
 export async function Navigation() {

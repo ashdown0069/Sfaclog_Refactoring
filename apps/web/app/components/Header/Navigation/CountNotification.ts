@@ -7,7 +7,7 @@ export const CountNotification = async () => {
     {
       method: 'GET',
       headers: new Headers(headers()),
-      next: { tags: ['notifications'] },
+      next: { tags: ['notifications'], revalidate: 600 },
     },
   );
   if (!res.ok) {

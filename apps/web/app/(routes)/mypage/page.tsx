@@ -35,7 +35,6 @@ async function MyPage({
     notFound();
   }
   const data = await res.json();
-  console.log(data);
   return (
     <div className='flex w-full flex-col'>
       <h1 className='text-primary text-H1M24 mb-8'>나의 활동</h1>
