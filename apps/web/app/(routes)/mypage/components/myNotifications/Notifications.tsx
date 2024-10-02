@@ -1,8 +1,8 @@
 import { INotification } from '@/models/User';
-import { IconChatBlack, IconGroupGray, IconMessageGray } from '@repo/ui/Icon';
+import { IconGroupGray } from '@repo/ui/Icon';
 import React from 'react';
 import NotificationItem from './NotificationItem';
-import { ModifyNotifications } from './modifyNotifications';
+import { ModifyNotifications } from './ModifyNotifications';
 
 interface NotificationsProps {
   notifications: INotification[];
