@@ -12,9 +12,12 @@
         "MAIL_ID",
         "MAIL_PASSWORD",
         "HEADER_TAB_URL",
+        "HEADER_TAB_URL2",
         "AUTH_GOOGLE_ID",
         "AUTH_GOOGLE_SECRET",
-        "MONGODB_URI"
+        "MONGODB_URI",
+        "SFACLOG_URL",
+        "DASHBOARD_URL"
       ]
     },
     "lint": {
