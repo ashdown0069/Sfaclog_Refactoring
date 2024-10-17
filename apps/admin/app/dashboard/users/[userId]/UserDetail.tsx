@@ -7,7 +7,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { IComment } from '@/model/Comments';
 import type { ILog } from '@/model/Log';
 import type { IUser } from '@/model/User';
-import Link from 'next/link';
 import React from 'react';
 
 export const UserDetail = ({
@@ -29,7 +28,7 @@ export const UserDetail = ({
               target='_blank'
               href={`${process.env.NEXT_PUBLIC_SFACLOG_URL}/user/${userInfo.user.pageUrl}`}
             >
-              유저 페이지로 이동
+              스팩로그 유저 페이지로 이동
             </a>
           </Button>
           <Button variant='ghost' asChild className='border-highlight-warning'>
