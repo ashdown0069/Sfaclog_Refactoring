@@ -59,7 +59,7 @@ export const UserComment = ({
                   <Button asChild className='bg-brand-70 hover:bg-brand-90'>
                     <Link
                       target='_blank'
-                      href={`${process.env.SFACLOG_URL}/log/${comment.log}`}
+                      href={`${process.env.NEXT_PUBLIC_SFACLOG_URL}/log/${comment.log}`}
                     >
                       스팩로그 페이지에서 보기
                     </Link>

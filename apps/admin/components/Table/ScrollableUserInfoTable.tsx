@@ -38,7 +38,7 @@ export const ScrollableUserInfoTable = ({ users }: { users: IUser[] }) => {
                 <Button asChild className='bg-brand-70 hover:bg-brand-90'>
                   <Link
                     target='_blank'
-                    href={`${process.env.SFACLOG_URL}/user/${user.pageUrl}`}
+                    href={`${process.env.NEXT_PUBLIC_SFACLOG_URL}/user/${user.pageUrl}`}
                   >
                     스팩로그 유저 페이지
                   </Link>

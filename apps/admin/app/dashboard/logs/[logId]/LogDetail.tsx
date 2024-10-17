@@ -36,7 +36,7 @@ export const LogDetail = ({ log }: { log: ILog }) => {
           >
             <Link
               target='_blank'
-              href={`${process.env.SFACLOG_URL}/log/${log._id}`}
+              href={`${process.env.NEXT_PUBLIC_SFACLOG_URL}/log/${log._id}`}
             >
               스팩로그 페이지에서 보기
             </Link>

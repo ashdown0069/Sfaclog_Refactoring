@@ -27,7 +27,7 @@ export const UserDetail = ({
           >
             <Link
               target='_blank'
-              href={`${process.env.SFACLOG_URL}/user/${userInfo.user.pageUrl}`}
+              href={`${process.env.NEXT_PUBLIC_SFACLOG_URL}/user/${userInfo.user.pageUrl}`}
             >
               유저 페이지로 이동
             </Link>
