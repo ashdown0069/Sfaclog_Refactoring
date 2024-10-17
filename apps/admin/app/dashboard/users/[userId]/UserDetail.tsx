@@ -1,3 +1,4 @@
+'use client';
 import { DeleteAlert } from '@/components/DeleteAlert';
 import { UserComment } from '@/components/Table/UserComment';
 import { UserInfoTable } from '@/components/Table/UserInfoTable';

@@ -50,12 +50,9 @@ export async function getUserInfo(
     })
       .populate('author', '_id nickname avatar')
       .populate('replies.author', '_id nickname avatar');
-    // console.log("foundComments", foundComments);
     const flatten: any[] = [];
     foundComments.forEach(comment => {
       flatten.push(comment);
-      if (comment.author.toString() === userId && comment.isDelete === false) {
-      }
       if (comment.replies && comment.replies.length > 0) {
         comment.replies.forEach(reply => {
           if (reply.author.toString() === userId && reply.isDelete === false) {
@@ -64,7 +61,6 @@ export async function getUserInfo(
         });
       }
     });
-
     return JSON.parse(JSON.stringify({ user, logs, comments: flatten }));
   } catch (error) {
     return { user: null, logs: [], comments: [] };
