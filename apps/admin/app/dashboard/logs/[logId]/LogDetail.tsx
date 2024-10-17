@@ -48,7 +48,7 @@ export const LogDetail = ({ log }: { log: ILog }) => {
           >
             <Link
               target='_blank'
-              href={`${process.env.NEXT_PUBLIC_BASE_URL}/user/${log.author._id}`}
+              href={`${process.env.NEXT_PUBLIC_BASE_URL}/dashboard/users/${log.author._id}`}
             >
               유저 정보 보기
             </Link>
