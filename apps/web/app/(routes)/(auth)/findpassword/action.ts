@@ -2,7 +2,7 @@
 
 import { sendResetPasswordEmail } from '@/lib/nodemailer';
 import { FindPasswordDataType } from '@/lib/validator';
-import { redirect } from 'next/navigation';
+
 //비밀번호 재설정 인증 메일 재전송 로직
 export const repeatChangePasswordEmail = async (emailAddress: string) => {
   try {
@@ -34,5 +34,3 @@ export const findPasswordAction = async (data: FindPasswordDataType) => {
 
   return true;
 };
-
-// return redirect(`/findpassword/verify?email=${data.email}`);
