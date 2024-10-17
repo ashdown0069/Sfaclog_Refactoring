@@ -7,7 +7,6 @@ import { notFound } from 'next/navigation';
 const page = async ({ params }: { params: { userId: string } }) => {
   const userInfo = await getUserInfo(params.userId);
   if (Object.keys(userInfo).length === 0) notFound();
-  // console.log("userInfo", userInfo);
   return (
     <section className='p-3'>
       <div className='p-5'>

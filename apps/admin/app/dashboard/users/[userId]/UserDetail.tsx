@@ -25,12 +25,12 @@ export const UserDetail = ({
             asChild
             className='bg-brand-70 hover:bg-brand-90 text-white hover:text-white'
           >
-            <Link
+            <a
               target='_blank'
               href={`${process.env.NEXT_PUBLIC_SFACLOG_URL}/user/${userInfo.user.pageUrl}`}
             >
               유저 페이지로 이동
-            </Link>
+            </a>
           </Button>
           <Button variant='ghost' asChild className='border-highlight-warning'>
             <DeleteAlert className='bg-highlight-warning hover:bg-highlight-warning text-white hover:text-white' />

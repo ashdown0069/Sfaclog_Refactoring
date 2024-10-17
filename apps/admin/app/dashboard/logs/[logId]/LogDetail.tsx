@@ -34,12 +34,12 @@ export const LogDetail = ({ log }: { log: ILog }) => {
             asChild
             className='bg-brand-70 hover:bg-brand-90 text-white hover:text-white'
           >
-            <Link
+            <a
               target='_blank'
               href={`${process.env.NEXT_PUBLIC_SFACLOG_URL}/log/${log._id}`}
             >
               스팩로그 페이지에서 보기
-            </Link>
+            </a>
           </Button>
           <Button
             variant='ghost'

@@ -36,12 +36,12 @@ export const ScrollableUserInfoTable = ({ users }: { users: IUser[] }) => {
                   <Link href={`/dashboard/users/${user._id}`}>유저 정보</Link>
                 </Button>
                 <Button asChild className='bg-brand-70 hover:bg-brand-90'>
-                  <Link
+                  <a
                     target='_blank'
                     href={`${process.env.NEXT_PUBLIC_SFACLOG_URL}/user/${user.pageUrl}`}
                   >
                     스팩로그 유저 페이지
-                  </Link>
+                  </a>
                 </Button>
               </div>
             </div>

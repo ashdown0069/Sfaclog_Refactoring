@@ -57,12 +57,12 @@ export const UserComment = ({
               {showLinkToPageBtn && (
                 <div className='flex grow items-center justify-end gap-2'>
                   <Button asChild className='bg-brand-70 hover:bg-brand-90'>
-                    <Link
+                    <a
                       target='_blank'
                       href={`${process.env.NEXT_PUBLIC_SFACLOG_URL}/log/${comment.log}`}
                     >
                       스팩로그 페이지에서 보기
-                    </Link>
+                    </a>
                   </Button>
                 </div>
               )}

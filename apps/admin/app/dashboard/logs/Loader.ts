@@ -38,7 +38,6 @@ export async function getLogInfo(
     if (!log) {
       return null;
     }
-    console.log(log.likedUsers);
     const foundComments = await CommentsModel.find({
       log: log._id,
     })
@@ -56,7 +55,6 @@ export async function getLogInfo(
     });
 
     log.comments = foundComments;
-    // console.log(log.comments);
     return JSON.parse(JSON.stringify(log));
   } catch (error) {
     return null;
